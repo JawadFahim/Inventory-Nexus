@@ -28,55 +28,194 @@ public class WorkerHome extends javax.swing.JFrame {
 
         BGMain = new javax.swing.JPanel();
         UpperPanel = new javax.swing.JPanel();
+        UserProfile = new javax.swing.JLabel();
+        Menu = new javax.swing.JLabel();
         SidePanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        Panel1 = new javax.swing.JPanel();
+        Inventory_Nexus = new javax.swing.JLabel();
+        ViewProducts = new javax.swing.JLabel();
+        CheckInProducts = new javax.swing.JLabel();
+        Logout = new javax.swing.JLabel();
+        ActivityHistoryLabel = new javax.swing.JLabel();
+        CheckOutProductsLabel = new javax.swing.JLabel();
+        DesktopPanel = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Worker Home");
+        setTitle("Welcome to your homepage!");
 
-        BGMain.setBackground(new java.awt.Color(255, 255, 255));
+        BGMain.setBackground(new java.awt.Color(51, 51, 51));
         BGMain.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         UpperPanel.setBackground(new java.awt.Color(210, 210, 210));
+
+        UserProfile.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        UserProfile.setText("My Profile");
+        UserProfile.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        UserProfile.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                UserProfileMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                UserProfileMousePressed(evt);
+            }
+        });
+
+        Menu.setFont(new java.awt.Font("PT Sans", 1, 18)); // NOI18N
+        Menu.setText("Check in Products");
 
         javax.swing.GroupLayout UpperPanelLayout = new javax.swing.GroupLayout(UpperPanel);
         UpperPanel.setLayout(UpperPanelLayout);
         UpperPanelLayout.setHorizontalGroup(
             UpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 940, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, UpperPanelLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(Menu)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 664, Short.MAX_VALUE)
+                .addComponent(UserProfile)
+                .addGap(48, 48, 48))
         );
         UpperPanelLayout.setVerticalGroup(
             UpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
+            .addGroup(UpperPanelLayout.createSequentialGroup()
+                .addGap(13, 13, 13)
+                .addGroup(UpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(UserProfile)
+                    .addComponent(Menu))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         BGMain.add(UpperPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(201, 0, 940, 50));
 
         SidePanel.setBackground(new java.awt.Color(51, 51, 51));
+        SidePanel.setPreferredSize(new java.awt.Dimension(202, 631));
 
-        jLabel1.setFont(new java.awt.Font("PT Sans", 1, 20)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Inventory Nexus");
+        Panel1.setBackground(new java.awt.Color(60, 60, 60));
+        Panel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+
+        Inventory_Nexus.setFont(new java.awt.Font("PT Sans", 1, 18)); // NOI18N
+        Inventory_Nexus.setForeground(new java.awt.Color(255, 255, 255));
+        Inventory_Nexus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Inventory_Nexus.setText("Inventory Nexus");
+
+        javax.swing.GroupLayout Panel1Layout = new javax.swing.GroupLayout(Panel1);
+        Panel1.setLayout(Panel1Layout);
+        Panel1Layout.setHorizontalGroup(
+            Panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel1Layout.createSequentialGroup()
+                .addContainerGap(16, Short.MAX_VALUE)
+                .addComponent(Inventory_Nexus)
+                .addGap(55, 55, 55))
+        );
+        Panel1Layout.setVerticalGroup(
+            Panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel1Layout.createSequentialGroup()
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addComponent(Inventory_Nexus)
+                .addContainerGap())
+        );
+
+        ViewProducts.setForeground(new java.awt.Color(255, 255, 255));
+        ViewProducts.setText("View Products");
+        ViewProducts.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ViewProducts.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ViewProductsMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                ViewProductsMousePressed(evt);
+            }
+        });
+
+        CheckInProducts.setForeground(new java.awt.Color(255, 255, 255));
+        CheckInProducts.setText("Check in Products");
+        CheckInProducts.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        CheckInProducts.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CheckInProductsMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                CheckInProductsMousePressed(evt);
+            }
+        });
+
+        Logout.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        Logout.setForeground(new java.awt.Color(255, 255, 255));
+        Logout.setLabelFor(SidePanel);
+        Logout.setText("Logout");
+        Logout.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Logout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Logout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LogoutMouseClicked(evt);
+            }
+        });
+
+        ActivityHistoryLabel.setForeground(new java.awt.Color(255, 255, 255));
+        ActivityHistoryLabel.setText("Activity History");
+        ActivityHistoryLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ActivityHistoryLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ActivityHistoryLabelMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                ActivityHistoryLabelMousePressed(evt);
+            }
+        });
+
+        CheckOutProductsLabel.setForeground(new java.awt.Color(255, 255, 255));
+        CheckOutProductsLabel.setText("Check out Products");
+        CheckOutProductsLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        CheckOutProductsLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CheckOutProductsLabelMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                CheckOutProductsLabelMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout SidePanelLayout = new javax.swing.GroupLayout(SidePanel);
         SidePanel.setLayout(SidePanelLayout);
         SidePanelLayout.setHorizontalGroup(
             SidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SidePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(Panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SidePanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Logout)
+                .addGap(16, 16, 16))
+            .addGroup(SidePanelLayout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addGroup(SidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ActivityHistoryLabel)
+                    .addComponent(CheckOutProductsLabel)
+                    .addComponent(CheckInProducts)
+                    .addComponent(ViewProducts))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         SidePanelLayout.setVerticalGroup(
             SidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SidePanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(568, Short.MAX_VALUE))
+                .addComponent(Panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(112, 112, 112)
+                .addComponent(ViewProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(CheckInProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(CheckOutProductsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(ActivityHistoryLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 247, Short.MAX_VALUE)
+                .addComponent(Logout)
+                .addGap(21, 21, 21))
         );
 
-        BGMain.add(SidePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -3, 200, 620));
+        BGMain.add(SidePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -3, 200, 630));
+
+        DesktopPanel.setPreferredSize(new java.awt.Dimension(500, 500));
+        BGMain.add(DesktopPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 940, 580));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -90,7 +229,69 @@ public class WorkerHome extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void LogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoutMouseClicked
+         // Create an instance of the WorkerLogin window
+    WorkerLogin workerLoginWindow = new WorkerLogin();
+    
+    // Make the WorkerLogin window visible
+    workerLoginWindow.setVisible(true);
+    
+    // Close the current WorkerHome window
+    this.dispose();
+    }//GEN-LAST:event_LogoutMouseClicked
+
+    private void UserProfileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UserProfileMouseClicked
+        WorkerProfile wp = new WorkerProfile();
+        DesktopPanel.removeAll();
+        DesktopPanel.add(wp).setVisible(true);
+    }//GEN-LAST:event_UserProfileMouseClicked
+
+    private void ViewProductsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ViewProductsMousePressed
+        Menu.setText("View Products");
+    }//GEN-LAST:event_ViewProductsMousePressed
+
+    private void CheckInProductsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CheckInProductsMousePressed
+      Menu.setText("Check In Products");
+    }//GEN-LAST:event_CheckInProductsMousePressed
+
+    private void ViewProductsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ViewProductsMouseClicked
+     ViewProducts vp = new ViewProducts();
+     DesktopPanel.removeAll();
+     DesktopPanel.add(vp).setVisible(true);
+    }//GEN-LAST:event_ViewProductsMouseClicked
+
+    private void CheckInProductsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CheckInProductsMouseClicked
+      CheckInProducts cip = new CheckInProducts();
+      DesktopPanel.removeAll();
+      DesktopPanel.add(cip).setVisible(true);
+    }//GEN-LAST:event_CheckInProductsMouseClicked
+
+    private void UserProfileMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UserProfileMousePressed
+         Menu.setText("Worker Profile");
+    }//GEN-LAST:event_UserProfileMousePressed
+
+    private void ActivityHistoryLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ActivityHistoryLabelMouseClicked
+      ActivityHistory ah = new ActivityHistory();
+      DesktopPanel.removeAll();
+      DesktopPanel.add(ah).setVisible(true);
+    }//GEN-LAST:event_ActivityHistoryLabelMouseClicked
+
+    private void ActivityHistoryLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ActivityHistoryLabelMousePressed
+       Menu.setText("Activity History");
+    }//GEN-LAST:event_ActivityHistoryLabelMousePressed
+
+    private void CheckOutProductsLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CheckOutProductsLabelMouseClicked
+      CheckOutProducts cop = new CheckOutProducts();
+      DesktopPanel.removeAll();
+      DesktopPanel.add(cop).setVisible(true);
+    }//GEN-LAST:event_CheckOutProductsLabelMouseClicked
+
+    private void CheckOutProductsLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CheckOutProductsLabelMousePressed
+        Menu.setText("Check Out Products");
+    }//GEN-LAST:event_CheckOutProductsLabelMousePressed
 
     /**
      * @param args the command line arguments
@@ -121,16 +322,25 @@ public class WorkerHome extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+           public void run() {
                 new WorkerHome().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ActivityHistoryLabel;
     private javax.swing.JPanel BGMain;
+    private javax.swing.JLabel CheckInProducts;
+    private javax.swing.JLabel CheckOutProductsLabel;
+    private javax.swing.JDesktopPane DesktopPanel;
+    private javax.swing.JLabel Inventory_Nexus;
+    private javax.swing.JLabel Logout;
+    private javax.swing.JLabel Menu;
+    private javax.swing.JPanel Panel1;
     private javax.swing.JPanel SidePanel;
     private javax.swing.JPanel UpperPanel;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel UserProfile;
+    private javax.swing.JLabel ViewProducts;
     // End of variables declaration//GEN-END:variables
 }
