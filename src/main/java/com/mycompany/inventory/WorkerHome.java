@@ -276,7 +276,12 @@ public class WorkerHome extends javax.swing.JFrame {
     }//GEN-LAST:event_UserProfileMousePressed
 
     private void ActivityHistoryLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ActivityHistoryLabelMouseClicked
-      ActivityHistory ah = new ActivityHistory();
+    ActivityHistoryWorker ah = null;
+        try {
+            ah = new ActivityHistoryWorker(workername);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(WorkerHome.class.getName()).log(Level.SEVERE, null, ex);
+        }
       DesktopPanel.removeAll();
       DesktopPanel.add(ah).setVisible(true);
     }//GEN-LAST:event_ActivityHistoryLabelMouseClicked
