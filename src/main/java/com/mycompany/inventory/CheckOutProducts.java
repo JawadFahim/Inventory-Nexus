@@ -73,6 +73,7 @@ public class CheckOutProducts extends javax.swing.JInternalFrame {
                 return types [columnIndex];
             }
         });
+        CheckOutProductsTable.getTableHeader().setReorderingAllowed(false);
         CheckOutProductsScrollPane.setViewportView(CheckOutProductsTable);
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
@@ -231,32 +232,43 @@ public class CheckOutProducts extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CheckOutButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CheckOutButtonMouseClicked
-       int productId, quantityToRemove;
-        String date;
-              String workerName;
+       model.setRowCount(0);
+        int productId, quantityToRemove;
+       String date;
+       String workerName;
 
-        try {
-            productId = Integer.parseInt(PITF.getText());
-            quantityToRemove = Integer.parseInt(QTYTORemoveTF.getText());
-            workerName = WNTF.getText();
-            date = DateTF.getText();
+       try {
+           productId = Integer.parseInt(PITF.getText());
+           quantityToRemove = Integer.parseInt(QTYTORemoveTF.getText());
+           workerName = WNTF.getText();
+           date = DateTF.getText();
 
-            updateDatabase(productId, quantityToRemove, workerName, date);
+           updateDatabase(productId, quantityToRemove, workerName, date);
 
-            PITF.setText("");
-            QTYTORemoveTF.setText("");
-             WNTF.setText("");
-            DateTF.setText("");
+           String message = "Product ID: " + productId + "\n" +
+                            "Quantity to Remove: " + quantityToRemove + "\n" +
+                            "Worker Name: " + workerName + "\n" +
+                            "Date: " + date;
 
-            updateTable(model);
-        } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this, "Invalid input. Please enter numbers.");
-        }
+         //  TwilioHandler.sendMessage(message);
+          model.setRowCount(0);
+
+       // Retrieve fresh data from the database and update the table
+       updateTable(model);
+           PITF.setText("");
+           QTYTORemoveTF.setText("");
+           WNTF.setText("");
+           DateTF.setText("");
+
+         
+       } catch (NumberFormatException ex) {
+           JOptionPane.showMessageDialog(this, "Invalid input. Please enter numbers.");
+       }
     }//GEN-LAST:event_CheckOutButtonMouseClicked
 private void updateTable(DefaultTableModel model) {
     model.setRowCount(0); // Clear the table
     try {
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/inventory", "root", "ilovenova");
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/inventory", "root", "root");
         PreparedStatement st = connection.prepareStatement(
                 "SELECT Products.item_id, Products.item_name, Products.quantity, CheckOuts.worker_name, CheckOuts.amount_removed, CheckOuts.checkout_date " +
                         "FROM Products " +
@@ -285,7 +297,7 @@ private void updateTable(DefaultTableModel model) {
 private void updateDatabase(int productId, int quantityToRemove, String workerName,String date) {
     String jdbcURL = "jdbc:mysql://localhost:3306/inventory";
     String username = "root";
-    String password = "ilovenova";
+    String password = "root";
     Connection connection = null;
 
     try {
