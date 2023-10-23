@@ -43,6 +43,24 @@ public class WorkerSignUp extends javax.swing.JFrame {
         password = new javax.swing.JLabel();
         workerpassword = new javax.swing.JPasswordField();
         signupbutton = new javax.swing.JButton();
+        Label3 = new javax.swing.JLabel();
+        Addresslabel = new javax.swing.JLabel();
+        AgeLabel = new javax.swing.JLabel();
+        Title3 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        FullNameLabel = new javax.swing.JLabel();
+        FullNameTF = new javax.swing.JTextField();
+        CityTF = new javax.swing.JTextField();
+        City = new javax.swing.JLabel();
+        contactNumber = new javax.swing.JLabel();
+        Email = new javax.swing.JLabel();
+        Title4 = new javax.swing.JLabel();
+        AddressTF = new javax.swing.JTextField();
+        CNTF = new javax.swing.JTextField();
+        EmailTF = new javax.swing.JTextField();
+        AgeTF2 = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
         Title5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -64,7 +82,7 @@ public class WorkerSignUp extends javax.swing.JFrame {
 
         UserName.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
         UserName.setForeground(new java.awt.Color(230, 230, 230));
-        UserName.setText("Username");
+        UserName.setText("Username* :");
 
         WorkerName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,11 +92,181 @@ public class WorkerSignUp extends javax.swing.JFrame {
 
         password.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
         password.setForeground(new java.awt.Color(230, 230, 230));
-        password.setText("Password");
+        password.setText("Password* :");
 
         signupbutton.setBackground(new java.awt.Color(210, 210, 210));
         signupbutton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         signupbutton.setText("Sign up");
+
+        Label3.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
+        Label3.setForeground(new java.awt.Color(230, 230, 230));
+
+        Addresslabel.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
+        Addresslabel.setForeground(new java.awt.Color(230, 230, 230));
+        Addresslabel.setText("Address :");
+
+        AgeLabel.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
+        AgeLabel.setForeground(new java.awt.Color(230, 230, 230));
+        AgeLabel.setText("Age :");
+
+        Title3.setForeground(new java.awt.Color(210, 210, 210));
+        Title3.setText("Personal Info :");
+
+        FullNameLabel.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
+        FullNameLabel.setForeground(new java.awt.Color(230, 230, 230));
+        FullNameLabel.setText("Full Name :");
+
+        FullNameTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FullNameTFActionPerformed(evt);
+            }
+        });
+
+        CityTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CityTFActionPerformed(evt);
+            }
+        });
+
+        City.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
+        City.setForeground(new java.awt.Color(230, 230, 230));
+        City.setText("City :");
+
+        contactNumber.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
+        contactNumber.setForeground(new java.awt.Color(230, 230, 230));
+        contactNumber.setText("Contact Number :");
+
+        Email.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
+        Email.setForeground(new java.awt.Color(230, 230, 230));
+        Email.setText("Email :");
+
+        Title4.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        Title4.setForeground(new java.awt.Color(210, 210, 210));
+        Title4.setText("* indicates required field");
+
+        AddressTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddressTFActionPerformed(evt);
+            }
+        });
+
+        CNTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CNTFActionPerformed(evt);
+            }
+        });
+
+        EmailTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EmailTFActionPerformed(evt);
+            }
+        });
+
+        AgeTF2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgeTF2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout BG_1Layout = new javax.swing.GroupLayout(BG_1);
+        BG_1.setLayout(BG_1Layout);
+        BG_1Layout.setHorizontalGroup(
+            BG_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BG_1Layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(Label3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(BG_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(BG_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(Title4)
+                        .addGroup(BG_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jSeparator1)
+                            .addComponent(password)
+                            .addComponent(UserName)
+                            .addComponent(Title2)
+                            .addComponent(Title1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(WorkerName, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
+                            .addComponent(workerpassword)))
+                    .addComponent(signupbutton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                .addGroup(BG_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(Email)
+                    .addComponent(contactNumber)
+                    .addComponent(City)
+                    .addComponent(Title3)
+                    .addComponent(FullNameLabel)
+                    .addComponent(FullNameTF, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
+                    .addComponent(jSeparator2)
+                    .addComponent(Addresslabel)
+                    .addComponent(CityTF)
+                    .addComponent(AgeLabel)
+                    .addComponent(AddressTF)
+                    .addComponent(CNTF)
+                    .addComponent(EmailTF)
+                    .addComponent(AgeTF2))
+                .addGap(63, 63, 63))
+        );
+        BG_1Layout.setVerticalGroup(
+            BG_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BG_1Layout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addGroup(BG_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(BG_1Layout.createSequentialGroup()
+                        .addComponent(Title1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Title2)
+                        .addGap(3, 3, 3)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(BG_1Layout.createSequentialGroup()
+                        .addComponent(Title3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(BG_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(UserName, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(FullNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(BG_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(WorkerName)
+                    .addComponent(FullNameTF))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(BG_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BG_1Layout.createSequentialGroup()
+                        .addComponent(AgeTF2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BG_1Layout.createSequentialGroup()
+                        .addGroup(BG_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Addresslabel, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(BG_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(workerpassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AddressTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(BG_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Label3, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(BG_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(AgeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Title4)))
+                        .addGap(36, 36, 36)
+                        .addGroup(BG_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(City, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(signupbutton))))
+                .addComponent(CityTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(contactNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(CNTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(EmailTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
+        );
+
+        BG_Main.add(BG_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 810, 520));
+
+        jPanel1.setBackground(new java.awt.Color(204, 0, 0));
 
         Title5.setForeground(new java.awt.Color(255, 255, 255));
         Title5.setText("« Back");
@@ -89,47 +277,24 @@ public class WorkerSignUp extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout BG_1Layout = new javax.swing.GroupLayout(BG_1);
-        BG_1.setLayout(BG_1Layout);
-        BG_1Layout.setHorizontalGroup(
-            BG_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BG_1Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(BG_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Title5)
-                    .addGroup(BG_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(password)
-                        .addComponent(UserName)
-                        .addComponent(Title2)
-                        .addComponent(Title1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(WorkerName)
-                        .addComponent(workerpassword)
-                        .addComponent(signupbutton, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)))
-                .addContainerGap(39, Short.MAX_VALUE))
-        );
-        BG_1Layout.setVerticalGroup(
-            BG_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BG_1Layout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addComponent(Title1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Title2)
-                .addGap(18, 18, 18)
-                .addComponent(UserName, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(WorkerName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(workerpassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(signupbutton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(77, Short.MAX_VALUE)
                 .addComponent(Title5)
-                .addContainerGap(110, Short.MAX_VALUE))
+                .addGap(33, 33, 33))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(519, Short.MAX_VALUE)
+                .addComponent(Title5)
+                .addGap(25, 25, 25))
         );
 
-        BG_Main.add(BG_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, -1, -1));
+        BG_Main.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 0, 150, 560));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -141,7 +306,7 @@ public class WorkerSignUp extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(BG_Main, javax.swing.GroupLayout.DEFAULT_SIZE, 561, Short.MAX_VALUE)
+            .addComponent(BG_Main, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -157,37 +322,87 @@ public class WorkerSignUp extends javax.swing.JFrame {
     dispose(); // Close the current window
     }//GEN-LAST:event_Title5MouseClicked
 
+    private void FullNameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FullNameTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FullNameTFActionPerformed
+
+    private void CityTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CityTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CityTFActionPerformed
+
+    private void CNTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CNTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CNTFActionPerformed
+
+    private void EmailTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmailTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EmailTFActionPerformed
+
+    private void AddressTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddressTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AddressTFActionPerformed
+
+    private void AgeTF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgeTF2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AgeTF2ActionPerformed
+
 
     private void signupbuttonActionPerformed(java.awt.event.ActionEvent evt) {
-    String username = WorkerName.getText();
-    String enteredPassword = new String(workerpassword.getPassword());
-
-    // Validate input (you might want to add more validation logic)
-    if (username.isEmpty() || enteredPassword.isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Please fill in all fields.", "Error", JOptionPane.ERROR_MESSAGE);
-        return;
-    }
-
-    try (Connection connection = DatabaseConnection.getConnection()) {
-        String query = "INSERT INTO worker (name, pw, status) VALUES (?, ?, 'PENDING')";
-        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            preparedStatement.setString(1, username);
-            // Store the password securely (consider hashing and salting)
-            preparedStatement.setString(2, hashAndSaltPassword(enteredPassword));
-            int rowsAffected = preparedStatement.executeUpdate();
-
-            if (rowsAffected > 0) {
-                JOptionPane.showMessageDialog(this, "Registration successful. Status: PENDING", "Success", JOptionPane.INFORMATION_MESSAGE);
-                dispose(); // Close the current registration window
-            } else {
-                JOptionPane.showMessageDialog(this, "Failed to create account. Please try again later.", "Error", JOptionPane.ERROR_MESSAGE);
-            }
+     String username = WorkerName.getText();
+        String enteredPassword = new String(workerpassword.getPassword());
+        String ageText = AgeTF2.getText();
+        String fullName = FullNameTF.getText();
+        String address = AddressTF.getText();
+        String city = CityTF.getText();
+        String contactNumber = CNTF.getText();
+        String email = EmailTF.getText();
+        int age;
+        try {
+            age = Integer.parseInt(ageText);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Invalid age. Please enter a valid number.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
         }
-    } catch (SQLException ex) {
-        // Handle database connection errors
-        ex.printStackTrace();
-        JOptionPane.showMessageDialog(this, "Database connection error.", "Error", JOptionPane.ERROR_MESSAGE);
-    }
+
+        if (username.isEmpty() || enteredPassword.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please fill in all fields.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        try (Connection connection = DatabaseConnection.getConnection()) {
+            String query = "INSERT INTO worker (name, pw, status, full_name, address, age, city, contact_number, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+                preparedStatement.setString(1, username);
+                preparedStatement.setString(2, hashAndSaltPassword(enteredPassword));
+                preparedStatement.setString(3, "PENDING");
+                preparedStatement.setString(4, fullName);
+                preparedStatement.setString(5, address);
+                preparedStatement.setInt(6, age);
+                preparedStatement.setString(7, city);
+                preparedStatement.setString(8, contactNumber);
+                preparedStatement.setString(9, email);
+                int rowsAffected = preparedStatement.executeUpdate();
+
+                if (rowsAffected > 0) {
+                    JOptionPane.showMessageDialog(this, "Your registration is pending approval. Please wait for approval.", "Success", JOptionPane.INFORMATION_MESSAGE);
+                    dispose();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Failed to create account. Please try again later.", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Database connection error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        
+   
+        
+        
+        
+        
+        
+        
 }
     
  
@@ -235,13 +450,31 @@ private String hashAndSaltPassword(String password) {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField AddressTF;
+    private javax.swing.JLabel Addresslabel;
+    private javax.swing.JLabel AgeLabel;
+    private javax.swing.JTextField AgeTF2;
     private javax.swing.JPanel BG_1;
     private javax.swing.JPanel BG_Main;
+    private javax.swing.JTextField CNTF;
+    private javax.swing.JLabel City;
+    private javax.swing.JTextField CityTF;
+    private javax.swing.JLabel Email;
+    private javax.swing.JTextField EmailTF;
+    private javax.swing.JLabel FullNameLabel;
+    private javax.swing.JTextField FullNameTF;
+    private javax.swing.JLabel Label3;
     private javax.swing.JLabel Title1;
     private javax.swing.JLabel Title2;
+    private javax.swing.JLabel Title3;
+    private javax.swing.JLabel Title4;
     private javax.swing.JLabel Title5;
     private javax.swing.JLabel UserName;
     private javax.swing.JTextField WorkerName;
+    private javax.swing.JLabel contactNumber;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel password;
     private javax.swing.JButton signupbutton;
     private javax.swing.JPasswordField workerpassword;

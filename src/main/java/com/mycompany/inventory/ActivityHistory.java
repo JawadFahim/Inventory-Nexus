@@ -95,6 +95,7 @@ public class ActivityHistory extends javax.swing.JInternalFrame {
         CheckinTick = new javax.swing.JRadioButton();
         CheckOUTtick = new javax.swing.JRadioButton();
         print = new javax.swing.JButton();
+        Back1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Table = new javax.swing.JTable();
 
@@ -106,7 +107,7 @@ public class ActivityHistory extends javax.swing.JInternalFrame {
             }
         });
 
-        RedPanle.setBackground(new java.awt.Color(204, 0, 0));
+        RedPanle.setBackground(new java.awt.Color(106, 175, 243));
         RedPanle.setForeground(new java.awt.Color(204, 0, 0));
 
         BLackPanel.setBackground(new java.awt.Color(51, 51, 51));
@@ -142,10 +143,21 @@ public class ActivityHistory extends javax.swing.JInternalFrame {
             }
         });
 
+        print.setBackground(new java.awt.Color(106, 175, 243));
+        print.setForeground(new java.awt.Color(255, 255, 255));
         print.setText("Print record");
         print.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 printActionPerformed(evt);
+            }
+        });
+
+        Back1.setForeground(new java.awt.Color(255, 255, 255));
+        Back1.setText("« Back");
+        Back1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Back1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Back1MouseClicked(evt);
             }
         });
 
@@ -158,12 +170,13 @@ public class ActivityHistory extends javax.swing.JInternalFrame {
                     .addGroup(BLackPanelLayout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addGroup(BLackPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(print)
                             .addComponent(CheckOUTtick)
                             .addComponent(CheckinTick)
                             .addComponent(Label)))
                     .addGroup(BLackPanelLayout.createSequentialGroup()
-                        .addGap(102, 102, 102)
-                        .addComponent(print)))
+                        .addGap(26, 26, 26)
+                        .addComponent(Back1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(84, Short.MAX_VALUE))
         );
         BLackPanelLayout.setVerticalGroup(
@@ -175,9 +188,11 @@ public class ActivityHistory extends javax.swing.JInternalFrame {
                 .addComponent(CheckinTick)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(CheckOUTtick)
-                .addGap(59, 59, 59)
+                .addGap(18, 18, 18)
                 .addComponent(print)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Back1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
         );
 
         Table.setModel(new javax.swing.table.DefaultTableModel(
@@ -207,8 +222,8 @@ public class ActivityHistory extends javax.swing.JInternalFrame {
             RedPanleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(RedPanleLayout.createSequentialGroup()
                 .addComponent(BLackPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 568, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         RedPanleLayout.setVerticalGroup(
             RedPanleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -389,9 +404,16 @@ model.setColumnIdentifiers(new Object[]{"Check OUT ID", "Item ID", "Worker Name"
          
     }//GEN-LAST:event_printActionPerformed
 
+    private void Back1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Back1MouseClicked
+        AdminHomePage ahp = new AdminHomePage();
+        ahp.setVisible(true);
+        dispose(); // Close the current window
+    }//GEN-LAST:event_Back1MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BLackPanel;
+    private javax.swing.JLabel Back1;
     private javax.swing.JComboBox<String> CHECKcombo;
     private javax.swing.JRadioButton CheckOUTtick;
     private javax.swing.JRadioButton CheckinTick;

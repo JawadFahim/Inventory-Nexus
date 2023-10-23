@@ -4,6 +4,8 @@
  */
 package com.mycompany.inventory;
 
+import javax.swing.plaf.basic.BasicInternalFrameUI;
+
 /**
  *
  * @author fahim
@@ -15,6 +17,10 @@ public class Stat extends javax.swing.JInternalFrame {
      */
     public Stat() {
         initComponents();
+        
+         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
+        BasicInternalFrameUI ui = (BasicInternalFrameUI)this.getUI();
+        ui.setNorthPane(null);
     }
 
     /**

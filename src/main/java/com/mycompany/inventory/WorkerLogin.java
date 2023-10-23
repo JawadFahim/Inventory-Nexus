@@ -51,7 +51,7 @@ public class WorkerLogin extends javax.swing.JFrame {
         Title3 = new javax.swing.JLabel();
         loginbutton = new javax.swing.JButton();
         Title4 = new javax.swing.JLabel();
-        Title5 = new javax.swing.JLabel();
+        Back = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
@@ -72,6 +72,7 @@ public class WorkerLogin extends javax.swing.JFrame {
         BG_Main.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BG_1.setBackground(new java.awt.Color(70, 70, 70));
+        BG_1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(204, 0, 51)));
 
         Title1.setFont(new java.awt.Font("PT Sans", 1, 24)); // NOI18N
         Title1.setForeground(new java.awt.Color(230, 230, 230));
@@ -117,12 +118,12 @@ public class WorkerLogin extends javax.swing.JFrame {
             }
         });
 
-        Title5.setForeground(new java.awt.Color(255, 255, 255));
-        Title5.setText("« Back");
-        Title5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Title5.addMouseListener(new java.awt.event.MouseAdapter() {
+        Back.setForeground(new java.awt.Color(255, 255, 255));
+        Back.setText("« Back");
+        Back.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Back.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Title5MouseClicked(evt);
+                BackMouseClicked(evt);
             }
         });
 
@@ -140,7 +141,7 @@ public class WorkerLogin extends javax.swing.JFrame {
                     .addGroup(BG_1Layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addGroup(BG_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(Title5)
+                            .addComponent(Back)
                             .addGroup(BG_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(password)
                                 .addComponent(UserName)
@@ -169,7 +170,7 @@ public class WorkerLogin extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(loginbutton)
                 .addGap(18, 18, 18)
-                .addComponent(Title5)
+                .addComponent(Back)
                 .addGap(13, 13, 13)
                 .addGroup(BG_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Title3)
@@ -177,7 +178,7 @@ public class WorkerLogin extends javax.swing.JFrame {
                 .addContainerGap(85, Short.MAX_VALUE))
         );
 
-        BG_Main.add(BG_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, -1, -1));
+        BG_Main.add(BG_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -203,11 +204,11 @@ public class WorkerLogin extends javax.swing.JFrame {
                 dispose(); // Close the current login window
     }//GEN-LAST:event_Title4MouseClicked
 
-    private void Title5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Title5MouseClicked
+    private void BackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackMouseClicked
           UserTypeSelection userTypeSelection = new UserTypeSelection();
             userTypeSelection.setVisible(true);
             dispose(); // Close the current window
-    }//GEN-LAST:event_Title5MouseClicked
+    }//GEN-LAST:event_BackMouseClicked
 
     private void loginbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginbuttonActionPerformed
         // TODO add your handling code here:
@@ -290,11 +291,11 @@ public class WorkerLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BG_1;
     private javax.swing.JPanel BG_Main;
+    private javax.swing.JLabel Back;
     private javax.swing.JLabel Title1;
     private javax.swing.JLabel Title2;
     private javax.swing.JLabel Title3;
     private javax.swing.JLabel Title4;
-    private javax.swing.JLabel Title5;
     private javax.swing.JLabel UserName;
     private javax.swing.JTextField WorkerName;
     private javax.swing.JFrame jFrame1;

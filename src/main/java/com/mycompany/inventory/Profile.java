@@ -9,8 +9,11 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.DatabaseMetaData;
+import java.sql.ResultSet;
 
 import javax.swing.JOptionPane;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -28,6 +31,11 @@ public class Profile extends javax.swing.JInternalFrame {
         this.username = username;
         this.admin=admin;
         initComponents();
+        populateApprovalTable();
+        
+         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
+        BasicInternalFrameUI ui = (BasicInternalFrameUI)this.getUI();
+        ui.setNorthPane(null);
     }
 
     /**
@@ -39,14 +47,23 @@ public class Profile extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        ApprovalTable = new javax.swing.JTable();
+        ApproveButton = new javax.swing.JButton();
+        RejectButton = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel6 = new javax.swing.JLabel();
+        Back1 = new javax.swing.JLabel();
 
-       
-
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText(username);
+        jPanel1.setBackground(new java.awt.Color(90, 90, 90));
+        jPanel1.setForeground(new java.awt.Color(87, 87, 87));
 
         jButton1.setText("Change password");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -55,47 +72,281 @@ public class Profile extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel2.setText(admin);
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("jLabel1");
+
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("jLabel2");
+
+        ApprovalTable.setBackground(new java.awt.Color(106, 175, 243));
+        ApprovalTable.setForeground(new java.awt.Color(51, 51, 51));
+        ApprovalTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Worker_ID", "Username", "Status"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(ApprovalTable);
+
+        ApproveButton.setBackground(new java.awt.Color(204, 255, 204));
+        ApproveButton.setText("Approve");
+        ApproveButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ApproveButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ApproveButtonMouseClicked(evt);
+            }
+        });
+        ApproveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ApproveButtonActionPerformed(evt);
+            }
+        });
+
+        RejectButton.setBackground(new java.awt.Color(255, 102, 102));
+        RejectButton.setText("Reject");
+        RejectButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        RejectButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RejectButtonMouseClicked(evt);
+            }
+        });
+        RejectButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RejectButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("User Name :");
+
+        jLabel4.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Password :");
+
+        jLabel5.setFont(new java.awt.Font("PT Sans", 1, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Personal Information :");
+
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Select and Approve or Reject workers :");
+
+        Back1.setForeground(new java.awt.Color(255, 255, 255));
+        Back1.setText("« Back");
+        Back1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Back1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Back1MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(9, 9, 9)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel4)
+                                    .addGap(69, 69, 69)
+                                    .addComponent(jLabel2))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel3)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(ApproveButton)
+                        .addGap(129, 129, 129)
+                        .addComponent(RejectButton))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addGap(136, 136, 136))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Back1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addComponent(jLabel6)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ApproveButton)
+                    .addComponent(RejectButton))
+                .addGap(22, 22, 22)
+                .addComponent(Back1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 37, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addComponent(jLabel5)
+                .addGap(2, 2, 2)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel4))
+                .addGap(35, 35, 35)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(358, 358, 358)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(370, 370, 370)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(414, 414, 414)
-                        .addComponent(jLabel2)))
-                .addContainerGap(374, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(129, 129, 129)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
-                .addGap(28, 28, 28)
-                .addComponent(jButton1)
-                .addContainerGap(216, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+   
+    
+    
+        private void populateApprovalTable() {
+        DefaultTableModel model = (DefaultTableModel) ApprovalTable.getModel();
+        model.setRowCount(0); // Clear existing table rows
+
+        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/inventory", "root", "root")) {
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT worker_id, name, status FROM worker WHERE status = 'PENDING'");
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                int workerId = resultSet.getInt("worker_id");
+                String name = resultSet.getString("name");
+                String status = resultSet.getString("status");
+                model.addRow(new Object[]{workerId, name, status});
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Database error: " + e.getMessage());
+        }
+    }
+        
+        
+          private void updateWorkerStatus(int workerId, String status) {
+        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/inventory", "root", "root")) {
+            String updateQuery = "UPDATE worker SET status = ? WHERE worker_id = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(updateQuery);
+            preparedStatement.setString(1, status);
+            preparedStatement.setInt(2, workerId);
+            preparedStatement.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Database error: " + e.getMessage());
+        }
+    }
+    
+ 
+
+private void deleteWorker(int workerId) {
+    try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/inventory", "root", "root")) {
+        String deleteQuery = "DELETE FROM worker WHERE worker_id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(deleteQuery);
+        preparedStatement.setInt(1, workerId);
+        preparedStatement.executeUpdate();
+    } catch (Exception e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(this, "Database error: " + e.getMessage());
+    }
+}
+
+    
+    
+    
+    
+    
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         changePassword();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void ApproveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ApproveButtonActionPerformed
+          int selectedRow = ApprovalTable.getSelectedRow();
+        if (selectedRow != -1) {
+            int workerId = (int) ApprovalTable.getValueAt(selectedRow, 0);
+            // Perform database update to change status to 'APPROVED' for the selected worker
+            updateWorkerStatus(workerId, "APPROVED");
+
+            // Refresh the table after approval
+            populateApprovalTable();
+            
+             // Show a message indicating the worker has been approved
+        JOptionPane.showMessageDialog(this, "Worker with ID " + workerId + " has been approved!");
+        }
+    }//GEN-LAST:event_ApproveButtonActionPerformed
+
+    
+    
+    
+    private void ApproveButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ApproveButtonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ApproveButtonMouseClicked
+
+    private void RejectButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RejectButtonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RejectButtonMouseClicked
+
+    private void RejectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RejectButtonActionPerformed
+       int selectedRow = ApprovalTable.getSelectedRow();
+    if (selectedRow != -1) {
+        int workerId = (int) ApprovalTable.getValueAt(selectedRow, 0);
+        // Perform database deletion for the selected worker
+        deleteWorker(workerId);
+
+        // Refresh the table after rejection
+        populateApprovalTable();
+        
+         // Show a message indicating the worker has been approved
+        JOptionPane.showMessageDialog(this, "Worker with ID " + workerId + " has been rejected!");
+    }
+    }//GEN-LAST:event_RejectButtonActionPerformed
+
+    private void Back1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Back1MouseClicked
+        AdminHomePage ahp = new AdminHomePage();
+        ahp.setVisible(true);
+        dispose(); // Close the current window
+    }//GEN-LAST:event_Back1MouseClicked
 private void changePassword() {
         String newPassword = JOptionPane.showInputDialog(this, "Enter new password:");
         try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/inventory", "root", "ict1");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/inventory", "root", "root"
+                    + "");
             
            
             PreparedStatement preparedStatement = connection.prepareStatement("UPDATE admin SET pw=? WHERE name=?");
@@ -117,8 +368,19 @@ private void changePassword() {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable ApprovalTable;
+    private javax.swing.JButton ApproveButton;
+    private javax.swing.JLabel Back1;
+    private javax.swing.JButton RejectButton;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }
