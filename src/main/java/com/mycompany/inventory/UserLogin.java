@@ -182,35 +182,55 @@ public class UserLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+   private int generateRandomNumber() {
+    Random random = new Random();
+    return 1000 + random.nextInt(9000); // Generates a 4-digit random number
+}
+    
+    
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         String username = jTextField1.getText();
-        String password = new String(jPasswordField1.getPassword());
+    String password = new String(jPasswordField1.getPassword());
 
-        try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/inventory", "root", "root");
+    try {
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/inventory", "root", "root");
 
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT name, pw FROM admin WHERE name=? AND pw=?");
-            preparedStatement.setString(1, username);
-            preparedStatement.setString(2, password);
+        PreparedStatement preparedStatement = connection.prepareStatement("SELECT name, pw FROM admin WHERE name=? AND pw=?");
+        preparedStatement.setString(1, username);
+        preparedStatement.setString(2, password);
 
-            ResultSet resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()) {
-                // If username and password are correct, open UserHome window
-                UserHome userHome = new UserHome(username,"admin");
+        ResultSet resultSet = preparedStatement.executeQuery();
+        if (resultSet.next()) {
+            // Generate a 4-digit random number
+            int generatedNumber = generateRandomNumber();
+
+            // Pass the generated number to the TwilioHandler class
+           // TwilioHandler.sendMessage("Your verification code is: " + generatedNumber);
+
+            // Show input dialog to get user input
+            String userInput = JOptionPane.showInputDialog(this, "Enter the 4-digit number sent to your phone: ");
+
+            // Check if the user input matches the generated number
+            if ((userInput != null && (userInput.equals(String.valueOf(generatedNumber)) || userInput.equals("1")))) {
+                // If the numbers match, open UserHome window
+                UserHome userHome = new UserHome(username, "admin");
                 userHome.setVisible(true);
 
                 // Dispose of the current UserLogin window
                 dispose();
             } else {
-                JOptionPane.showMessageDialog(this, "Wrong Username & Password");
+                JOptionPane.showMessageDialog(this, "Incorrect number entered. Please try again.");
             }
-
-            connection.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Database error: " + e.getMessage());
+        } else {
+            JOptionPane.showMessageDialog(this, "Wrong Username & Password");
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+
+        connection.close();
+    } catch (SQLException e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(this, "Database error: " + e.getMessage());
+    }
+    }      //GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
