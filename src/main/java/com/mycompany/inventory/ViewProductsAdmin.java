@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -78,6 +79,7 @@ public class ViewProductsAdmin extends javax.swing.JInternalFrame {
         ViewProductsTable = new javax.swing.JTable();
         RedPanel = new javax.swing.JPanel();
         label1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         Main_BG.setBackground(new java.awt.Color(51, 51, 51));
         Main_BG.setPreferredSize(new java.awt.Dimension(614, 480));
@@ -114,21 +116,32 @@ public class ViewProductsAdmin extends javax.swing.JInternalFrame {
         label1.setForeground(new java.awt.Color(255, 255, 255));
         label1.setText("View the groceries!");
 
+        jButton1.setText("Delete Product");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout RedPanelLayout = new javax.swing.GroupLayout(RedPanel);
         RedPanel.setLayout(RedPanelLayout);
         RedPanelLayout.setHorizontalGroup(
             RedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RedPanelLayout.createSequentialGroup()
-                .addContainerGap(731, Short.MAX_VALUE)
-                .addComponent(label1)
-                .addGap(231, 231, 231))
+            .addGroup(RedPanelLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 607, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(187, 187, 187))
         );
         RedPanelLayout.setVerticalGroup(
             RedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RedPanelLayout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
-                .addComponent(label1)
-                .addGap(17, 17, 17))
+            .addGroup(RedPanelLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(RedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         Main_BG.add(RedPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1, 0, 1070, 60));
@@ -147,12 +160,38 @@ public class ViewProductsAdmin extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String itemIdToDelete = JOptionPane.showInputDialog(this, "Enter the Item ID to delete:");
+    if (itemIdToDelete != null && !itemIdToDelete.isEmpty()) {
+        try (Connection connection = DatabaseConnection.getConnection()) {
+            String deleteQuery = "DELETE FROM Products WHERE item_id = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(deleteQuery);
+            preparedStatement.setInt(1, Integer.parseInt(itemIdToDelete));
+            int rowsAffected = preparedStatement.executeUpdate();
+
+            if (rowsAffected > 0) {
+                JOptionPane.showMessageDialog(this, "Product with ID " + itemIdToDelete + " deleted successfully.");
+                displayProducts(); // Refresh the table after deletion
+            } else {
+                JOptionPane.showMessageDialog(this, "Product with ID " + itemIdToDelete + " not found.");
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error occurred while deleting product with ID " + itemIdToDelete + ".");
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Invalid item ID. Please enter a valid number.");
+        }
+    }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Main_BG;
     private javax.swing.JPanel RedPanel;
     private javax.swing.JScrollPane ViewProductsScrollPane;
     private javax.swing.JTable ViewProductsTable;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel label1;
     // End of variables declaration//GEN-END:variables
 }
