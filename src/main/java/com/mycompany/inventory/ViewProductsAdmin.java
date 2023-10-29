@@ -80,7 +80,11 @@ public class ViewProductsAdmin extends javax.swing.JInternalFrame {
         label1 = new javax.swing.JLabel();
 
         Main_BG.setBackground(new java.awt.Color(51, 51, 51));
+        Main_BG.setPreferredSize(new java.awt.Dimension(614, 480));
+        Main_BG.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        ViewProductsTable.setBackground(new java.awt.Color(106, 175, 243));
+        ViewProductsTable.setForeground(new java.awt.Color(255, 255, 255));
         ViewProductsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -102,6 +106,8 @@ public class ViewProductsAdmin extends javax.swing.JInternalFrame {
         });
         ViewProductsScrollPane.setViewportView(ViewProductsTable);
 
+        Main_BG.add(ViewProductsScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 920, 510));
+
         RedPanel.setBackground(new java.awt.Color(106, 175, 243));
 
         label1.setFont(new java.awt.Font("PT Sans", 1, 13)); // NOI18N
@@ -113,48 +119,29 @@ public class ViewProductsAdmin extends javax.swing.JInternalFrame {
         RedPanelLayout.setHorizontalGroup(
             RedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RedPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(731, Short.MAX_VALUE)
                 .addComponent(label1)
-                .addGap(25, 25, 25))
+                .addGap(231, 231, 231))
         );
         RedPanelLayout.setVerticalGroup(
             RedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RedPanelLayout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
+                .addContainerGap(25, Short.MAX_VALUE)
                 .addComponent(label1)
-                .addGap(16, 16, 16))
+                .addGap(17, 17, 17))
         );
 
-        javax.swing.GroupLayout Main_BGLayout = new javax.swing.GroupLayout(Main_BG);
-        Main_BG.setLayout(Main_BGLayout);
-        Main_BGLayout.setHorizontalGroup(
-            Main_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(RedPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(ViewProductsScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 936, Short.MAX_VALUE)
-        );
-        Main_BGLayout.setVerticalGroup(
-            Main_BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Main_BGLayout.createSequentialGroup()
-                .addComponent(RedPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ViewProductsScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 497, Short.MAX_VALUE))
-        );
+        Main_BG.add(RedPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1, 0, 1070, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Main_BG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(Main_BG, javax.swing.GroupLayout.PREFERRED_SIZE, 944, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Main_BG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(Main_BG, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();

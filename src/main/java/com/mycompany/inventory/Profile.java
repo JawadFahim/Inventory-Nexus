@@ -60,7 +60,6 @@ public class Profile extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel6 = new javax.swing.JLabel();
-        Back1 = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(90, 90, 90));
         jPanel1.setForeground(new java.awt.Color(87, 87, 87));
@@ -80,7 +79,7 @@ public class Profile extends javax.swing.JInternalFrame {
         jLabel2.setText("jLabel2");
 
         ApprovalTable.setBackground(new java.awt.Color(106, 175, 243));
-        ApprovalTable.setForeground(new java.awt.Color(51, 51, 51));
+        ApprovalTable.setForeground(new java.awt.Color(255, 255, 255));
         ApprovalTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -143,16 +142,7 @@ public class Profile extends javax.swing.JInternalFrame {
         jLabel5.setText("Personal Information :");
 
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Select and Approve or Reject workers :");
-
-        Back1.setForeground(new java.awt.Color(255, 255, 255));
-        Back1.setText("« Back");
-        Back1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Back1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Back1MouseClicked(evt);
-            }
-        });
+        jLabel6.setText("Select the rows to Approve or Reject workers :");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -185,9 +175,6 @@ public class Profile extends javax.swing.JInternalFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addGap(136, 136, 136))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(Back1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,9 +187,7 @@ public class Profile extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ApproveButton)
                     .addComponent(RejectButton))
-                .addGap(22, 22, 22)
-                .addComponent(Back1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 37, Short.MAX_VALUE))
+                .addGap(0, 86, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(52, 52, 52)
                 .addComponent(jLabel5)
@@ -336,12 +321,6 @@ private void deleteWorker(int workerId) {
         JOptionPane.showMessageDialog(this, "Worker with ID " + workerId + " has been rejected!");
     }
     }//GEN-LAST:event_RejectButtonActionPerformed
-
-    private void Back1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Back1MouseClicked
-        AdminHomePage ahp = new AdminHomePage();
-        ahp.setVisible(true);
-        dispose(); // Close the current window
-    }//GEN-LAST:event_Back1MouseClicked
 private void changePassword() {
         String newPassword = JOptionPane.showInputDialog(this, "Enter new password:");
         try {
@@ -370,7 +349,6 @@ private void changePassword() {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable ApprovalTable;
     private javax.swing.JButton ApproveButton;
-    private javax.swing.JLabel Back1;
     private javax.swing.JButton RejectButton;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

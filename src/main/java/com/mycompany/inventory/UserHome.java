@@ -4,6 +4,7 @@
  */
 package com.mycompany.inventory;
 
+import java.awt.Color;
 import java.io.FileNotFoundException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,11 +17,23 @@ public class UserHome extends javax.swing.JFrame {
 
     private static String username;
     private static String admin;
+    Color DefaultColor,ClickedColor;
 
     public UserHome(String username,String admin) {
         this.username = username;
         this.admin=admin;
         initComponents();
+       DefaultColor  = new Color(51,51,51);
+       ClickedColor = new Color(106,175,243);
+       
+      Addprodpanel.setBackground(DefaultColor);
+      searchprodpanel.setBackground(DefaultColor);
+      viewprodpanel.setBackground(DefaultColor);
+      activitypanel.setBackground(DefaultColor);
+      statpanel.setBackground(DefaultColor);
+       
+       
+       
         
     }
     /**
@@ -44,15 +57,20 @@ public class UserHome extends javax.swing.JFrame {
         FullPanel = new javax.swing.JPanel();
         UpperPanel = new javax.swing.JPanel();
         AdminButton = new javax.swing.JButton();
+        Menu = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         menuName = new javax.swing.JLabel();
-        Menu = new javax.swing.JLabel();
         LowerPanel = new javax.swing.JPanel();
-        AddProducs = new javax.swing.JLabel();
-        SearchProducts = new javax.swing.JLabel();
-        ViewProducts = new javax.swing.JLabel();
         Logout = new javax.swing.JButton();
+        searchprodpanel = new javax.swing.JPanel();
+        SearchProducts = new javax.swing.JLabel();
+        Addprodpanel = new javax.swing.JPanel();
+        AddProducs1 = new javax.swing.JLabel();
+        viewprodpanel = new javax.swing.JPanel();
+        ViewProducts = new javax.swing.JLabel();
+        activitypanel = new javax.swing.JPanel();
         ActivityHistory = new javax.swing.JLabel();
+        statpanel = new javax.swing.JPanel();
         Statistics = new javax.swing.JLabel();
         DesktopPanel = new javax.swing.JDesktopPane();
         jPanel1 = new javax.swing.JPanel();
@@ -77,7 +95,6 @@ public class UserHome extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         TotalOUT = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        MenuBar = new javax.swing.JMenuBar();
 
         popupMenu1.setLabel("popupMenu1");
 
@@ -97,11 +114,15 @@ public class UserHome extends javax.swing.JFrame {
         jMenuItem2.setText("jMenuItem2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1140, 630));
+        setPreferredSize(new java.awt.Dimension(1080, 630));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         FullPanel.setBackground(new java.awt.Color(51, 51, 51));
+        FullPanel.setPreferredSize(new java.awt.Dimension(1180, 640));
+        FullPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         UpperPanel.setBackground(new java.awt.Color(210, 210, 210));
+        UpperPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         AdminButton.setBackground(new java.awt.Color(106, 175, 243));
         AdminButton.setText("My Profile");
@@ -110,9 +131,23 @@ public class UserHome extends javax.swing.JFrame {
                 AdminButtonActionPerformed(evt);
             }
         });
+        UpperPanel.add(AdminButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(956, 21, -1, -1));
+
+        Menu.setFont(new java.awt.Font("PT Sans", 1, 18)); // NOI18N
+        Menu.setText("Add Product");
+        Menu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MenuMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                MenuMousePressed(evt);
+            }
+        });
+        UpperPanel.add(Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, -1, 17));
 
         jPanel7.setBackground(new java.awt.Color(60, 60, 60));
         jPanel7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         menuName.setFont(new java.awt.Font("PT Sans", 1, 18)); // NOI18N
         menuName.setForeground(new java.awt.Color(238, 238, 238));
@@ -125,70 +160,35 @@ public class UserHome extends javax.swing.JFrame {
                 menuNameMousePressed(evt);
             }
         });
+        jPanel7.add(menuName, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(menuName)
-                .addContainerGap(19, Short.MAX_VALUE))
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(menuName, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        UpperPanel.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 63));
 
-        Menu.setFont(new java.awt.Font("PT Sans", 1, 18)); // NOI18N
-        Menu.setText("Add Product");
-        Menu.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                MenuMouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                MenuMousePressed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout UpperPanelLayout = new javax.swing.GroupLayout(UpperPanel);
-        UpperPanel.setLayout(UpperPanelLayout);
-        UpperPanelLayout.setHorizontalGroup(
-            UpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(UpperPanelLayout.createSequentialGroup()
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(Menu)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 666, Short.MAX_VALUE)
-                .addComponent(AdminButton)
-                .addGap(78, 78, 78))
-        );
-        UpperPanelLayout.setVerticalGroup(
-            UpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, UpperPanelLayout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
-                .addGroup(UpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AdminButton)
-                    .addComponent(Menu, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(13, 13, 13))
-            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        FullPanel.add(UpperPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, -1));
 
         LowerPanel.setBackground(new java.awt.Color(51, 51, 51));
         LowerPanel.setForeground(new java.awt.Color(255, 204, 204));
+        LowerPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        AddProducs.setForeground(new java.awt.Color(255, 255, 255));
-        AddProducs.setText("Add Product");
-        AddProducs.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        AddProducs.addMouseListener(new java.awt.event.MouseAdapter() {
+        Logout.setText("Logout");
+        Logout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Logout.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                AddProducsMouseClicked(evt);
+                LogoutMouseClicked(evt);
             }
+        });
+        Logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogoutActionPerformed(evt);
+            }
+        });
+        LowerPanel.add(Logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 470, -1, -1));
+
+        searchprodpanel.setBackground(new java.awt.Color(51, 51, 51));
+        searchprodpanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        searchprodpanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                AddProducsMousePressed(evt);
+                searchprodpanelMousePressed(evt);
             }
         });
 
@@ -204,6 +204,72 @@ public class UserHome extends javax.swing.JFrame {
             }
         });
 
+        javax.swing.GroupLayout searchprodpanelLayout = new javax.swing.GroupLayout(searchprodpanel);
+        searchprodpanel.setLayout(searchprodpanelLayout);
+        searchprodpanelLayout.setHorizontalGroup(
+            searchprodpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(searchprodpanelLayout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(SearchProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(42, Short.MAX_VALUE))
+        );
+        searchprodpanelLayout.setVerticalGroup(
+            searchprodpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, searchprodpanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(SearchProducts, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        LowerPanel.add(searchprodpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 180, 40));
+
+        Addprodpanel.setBackground(new java.awt.Color(51, 51, 51));
+        Addprodpanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Addprodpanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                AddprodpanelMousePressed(evt);
+            }
+        });
+
+        AddProducs1.setForeground(new java.awt.Color(255, 255, 255));
+        AddProducs1.setText("Add Product");
+        AddProducs1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        AddProducs1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AddProducs1MouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                AddProducs1MousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout AddprodpanelLayout = new javax.swing.GroupLayout(Addprodpanel);
+        Addprodpanel.setLayout(AddprodpanelLayout);
+        AddprodpanelLayout.setHorizontalGroup(
+            AddprodpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AddprodpanelLayout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(AddProducs1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(63, Short.MAX_VALUE))
+        );
+        AddprodpanelLayout.setVerticalGroup(
+            AddprodpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AddprodpanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(AddProducs1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
+        );
+
+        LowerPanel.add(Addprodpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 180, 40));
+
+        viewprodpanel.setBackground(new java.awt.Color(51, 51, 51));
+        viewprodpanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        viewprodpanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                viewprodpanelMousePressed(evt);
+            }
+        });
+
         ViewProducts.setForeground(new java.awt.Color(255, 255, 255));
         ViewProducts.setText("View Products");
         ViewProducts.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -216,16 +282,30 @@ public class UserHome extends javax.swing.JFrame {
             }
         });
 
-        Logout.setText("Logout");
-        Logout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Logout.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                LogoutMouseClicked(evt);
-            }
-        });
-        Logout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LogoutActionPerformed(evt);
+        javax.swing.GroupLayout viewprodpanelLayout = new javax.swing.GroupLayout(viewprodpanel);
+        viewprodpanel.setLayout(viewprodpanelLayout);
+        viewprodpanelLayout.setHorizontalGroup(
+            viewprodpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(viewprodpanelLayout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(ViewProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(42, Short.MAX_VALUE))
+        );
+        viewprodpanelLayout.setVerticalGroup(
+            viewprodpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, viewprodpanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(ViewProducts, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        LowerPanel.add(viewprodpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, -1, -1));
+
+        activitypanel.setBackground(new java.awt.Color(51, 51, 51));
+        activitypanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        activitypanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                activitypanelMousePressed(evt);
             }
         });
 
@@ -241,6 +321,33 @@ public class UserHome extends javax.swing.JFrame {
             }
         });
 
+        javax.swing.GroupLayout activitypanelLayout = new javax.swing.GroupLayout(activitypanel);
+        activitypanel.setLayout(activitypanelLayout);
+        activitypanelLayout.setHorizontalGroup(
+            activitypanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(activitypanelLayout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(ActivityHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(42, Short.MAX_VALUE))
+        );
+        activitypanelLayout.setVerticalGroup(
+            activitypanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, activitypanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(ActivityHistory, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        LowerPanel.add(activitypanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, -1, -1));
+
+        statpanel.setBackground(new java.awt.Color(51, 51, 51));
+        statpanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        statpanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                statpanelMousePressed(evt);
+            }
+        });
+
         Statistics.setForeground(new java.awt.Color(255, 255, 255));
         Statistics.setText("Statistics");
         Statistics.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -253,66 +360,56 @@ public class UserHome extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout LowerPanelLayout = new javax.swing.GroupLayout(LowerPanel);
-        LowerPanel.setLayout(LowerPanelLayout);
-        LowerPanelLayout.setHorizontalGroup(
-            LowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(LowerPanelLayout.createSequentialGroup()
-                .addContainerGap(43, Short.MAX_VALUE)
-                .addGroup(LowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LowerPanelLayout.createSequentialGroup()
-                        .addGroup(LowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ViewProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(SearchProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(AddProducs, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ActivityHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Statistics))
-                        .addGap(21, 21, 21))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LowerPanelLayout.createSequentialGroup()
-                        .addComponent(Logout)
-                        .addContainerGap())))
-        );
-        LowerPanelLayout.setVerticalGroup(
-            LowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(LowerPanelLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(AddProducs)
-                .addGap(30, 30, 30)
-                .addComponent(SearchProducts)
-                .addGap(31, 31, 31)
-                .addComponent(ViewProducts)
-                .addGap(32, 32, 32)
-                .addComponent(ActivityHistory)
-                .addGap(36, 36, 36)
+        javax.swing.GroupLayout statpanelLayout = new javax.swing.GroupLayout(statpanel);
+        statpanel.setLayout(statpanelLayout);
+        statpanelLayout.setHorizontalGroup(
+            statpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(statpanelLayout.createSequentialGroup()
+                .addGap(41, 41, 41)
                 .addComponent(Statistics)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Logout)
-                .addGap(17, 17, 17))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
+        statpanelLayout.setVerticalGroup(
+            statpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, statpanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Statistics, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        LowerPanel.add(statpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, -1, -1));
+
+        FullPanel.add(LowerPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 59, 180, 580));
 
         DesktopPanel.setPreferredSize(new java.awt.Dimension(870, 551));
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 66, 465, 10));
 
         Title1.setBackground(new java.awt.Color(255, 255, 255));
         Title1.setFont(new java.awt.Font("PT Sans", 1, 36)); // NOI18N
         Title1.setForeground(new java.awt.Color(255, 255, 255));
         Title1.setText("Inventory Nexus!");
         Title1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jPanel1.add(Title1, new org.netbeans.lib.awtextra.AbsoluteConstraints(352, 262, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Sama Devanagari", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(238, 238, 238));
         jLabel7.setText("Activity");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 26, 75, -1));
 
         Title2.setBackground(new java.awt.Color(255, 255, 255));
         Title2.setFont(new java.awt.Font("Symbol", 0, 24)); // NOI18N
         Title2.setForeground(new java.awt.Color(255, 255, 255));
         Title2.setText("Welcome to");
         Title2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jPanel1.add(Title2, new org.netbeans.lib.awtextra.AbsoluteConstraints(489, 231, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Sama Devanagari", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(238, 238, 238));
         jLabel8.setText("Inevntory Summary");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 316, 169, -1));
 
         jPanel6.setBackground(new java.awt.Color(106, 175, 243));
         jPanel6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -349,6 +446,8 @@ public class UserHome extends javax.swing.JFrame {
                 .addGap(21, 21, 21))
         );
 
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 94, -1, -1));
+
         jPanel10.setBackground(new java.awt.Color(106, 106, 106));
         jPanel10.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -365,7 +464,7 @@ public class UserHome extends javax.swing.JFrame {
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addComponent(TotalQtyOrdered)
                 .addGap(56, 56, 56))
         );
@@ -378,6 +477,8 @@ public class UserHome extends javax.swing.JFrame {
                     .addComponent(TotalQtyOrdered))
                 .addContainerGap())
         );
+
+        jPanel1.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 441, 224, -1));
 
         jPanel8.setBackground(new java.awt.Color(106, 175, 243));
         jPanel8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -414,6 +515,8 @@ public class UserHome extends javax.swing.JFrame {
                 .addGap(21, 21, 21))
         );
 
+        jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 94, -1, -1));
+
         jPanel11.setBackground(new java.awt.Color(106, 106, 106));
         jPanel11.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -444,6 +547,8 @@ public class UserHome extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jPanel1.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 384, -1, -1));
+
         jPanel9.setBackground(new java.awt.Color(106, 175, 243));
         jPanel9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -459,81 +564,28 @@ public class UserHome extends javax.swing.JFrame {
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addContainerGap(29, Short.MAX_VALUE)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel11))
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addComponent(TotalOUT)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                        .addGap(26, 26, 26)
+                        .addComponent(TotalOUT)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(15, 15, 15))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
+                .addGap(23, 23, 23)
                 .addComponent(jLabel11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TotalOUT, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(Title1)
-                            .addComponent(Title2))))
-                .addGap(351, 351, 351))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addComponent(Title2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Title1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(71, Short.MAX_VALUE))
-        );
+        jPanel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(374, 94, 140, 100));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 356, 465, 10));
 
         DesktopPanel.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -545,143 +597,157 @@ public class UserHome extends javax.swing.JFrame {
         );
         DesktopPanelLayout.setVerticalGroup(
             DesktopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout FullPanelLayout = new javax.swing.GroupLayout(FullPanel);
-        FullPanel.setLayout(FullPanelLayout);
-        FullPanelLayout.setHorizontalGroup(
-            FullPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-            .addComponent(UpperPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(FullPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(LowerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(DesktopPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 965, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
-        );
-        FullPanelLayout.setVerticalGroup(
-            FullPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(FullPanelLayout.createSequentialGroup()
-                .addComponent(UpperPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addGroup(FullPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(LowerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(DesktopPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-        );
+        FullPanel.add(DesktopPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 900, 580));
 
-        setJMenuBar(MenuBar);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(FullPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(FullPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(FullPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, -1));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void AdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminButtonActionPerformed
-        Profile prof = new Profile(username,admin);
-    DesktopPanel.removeAll();
-    DesktopPanel.add(prof).setVisible(true);
-    }//GEN-LAST:event_AdminButtonActionPerformed
+    private void StatisticsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StatisticsMousePressed
+        Menu.setText("Statistics");
+    }//GEN-LAST:event_StatisticsMousePressed
 
-
-    private void SearchProductsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SearchProductsMouseClicked
-        // TODO add your handling code here:
-        SearchProduct search = new SearchProduct();
-    DesktopPanel.removeAll();
-    DesktopPanel.add(search).setVisible(true);
-    }//GEN-LAST:event_SearchProductsMouseClicked
-
-    private void AddProducsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddProducsMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AddProducsMousePressed
-
-    private void AddProducsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddProducsMouseClicked
-        AddProduct add = new AddProduct();
+    private void StatisticsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StatisticsMouseClicked
+        Stat s = new Stat();
         DesktopPanel.removeAll();
-        DesktopPanel.add(add).setVisible(true);
-    }//GEN-LAST:event_AddProducsMouseClicked
+        DesktopPanel.add(s).setVisible(true);
+    }//GEN-LAST:event_StatisticsMouseClicked
 
-    private void ViewProductsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ViewProductsMouseClicked
-          ViewProductsAdmin vpa = new ViewProductsAdmin();
-     DesktopPanel.removeAll();
-     DesktopPanel.add(vpa).setVisible(true);
-    }//GEN-LAST:event_ViewProductsMouseClicked
+    private void ActivityHistoryMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ActivityHistoryMousePressed
+        Menu.setText("Activity History");
+    }//GEN-LAST:event_ActivityHistoryMousePressed
 
-    private void ViewProductsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ViewProductsMousePressed
-            Menu.setText("View Products");
-    }//GEN-LAST:event_ViewProductsMousePressed
-
-    private void SearchProductsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SearchProductsMousePressed
-         Menu.setText("Search Products");
-    }//GEN-LAST:event_SearchProductsMousePressed
-
-    private void menuNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuNameMouseClicked
-         AdminHomePage ahp = new AdminHomePage();
-     DesktopPanel.removeAll();
-     DesktopPanel.add(ahp).setVisible(true);
-    }//GEN-LAST:event_menuNameMouseClicked
-
-    private void menuNameMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuNameMousePressed
-         Menu.setText("Home");
-    }//GEN-LAST:event_menuNameMousePressed
-
-    private void MenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MenuMouseClicked
-
-    private void MenuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MenuMousePressed
+    private void ActivityHistoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ActivityHistoryMouseClicked
+        try {
+            // TODO add your handling code here:
+            ActivityHistory a=new ActivityHistory();
+            DesktopPanel.removeAll();
+            DesktopPanel.add(a).setVisible(true);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(UserHome.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ActivityHistoryMouseClicked
 
     private void LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_LogoutActionPerformed
 
     private void LogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoutMouseClicked
-              // Create an instance of the WorkerLogin window
-    UserLogin userlogin = new UserLogin();
-    
-    // Make the WorkerLogin window visible
- userlogin.setVisible(true);
-    
-    // Close the current WorkerHome window
-    this.dispose();
+        // Create an instance of the WorkerLogin window
+        UserLogin userlogin = new UserLogin();
+
+        // Make the WorkerLogin window visible
+        userlogin.setVisible(true);
+
+        // Close the current WorkerHome window
+        this.dispose();
     }//GEN-LAST:event_LogoutMouseClicked
 
-    private void ActivityHistoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ActivityHistoryMouseClicked
-try {
-            // TODO add your handling code here:
-            ActivityHistory a=new ActivityHistory();
-            DesktopPanel.removeAll();
-    DesktopPanel.add(a).setVisible(true);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(UserHome.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_ActivityHistoryMouseClicked
+    private void SearchProductsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SearchProductsMousePressed
+        Menu.setText("Search Products");
+    }//GEN-LAST:event_SearchProductsMousePressed
 
-    private void ActivityHistoryMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ActivityHistoryMousePressed
-         Menu.setText("Activity History");
-    }//GEN-LAST:event_ActivityHistoryMousePressed
+    private void SearchProductsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SearchProductsMouseClicked
+        // TODO add your handling code here:
+        SearchProduct search = new SearchProduct();
+        DesktopPanel.removeAll();
+        DesktopPanel.add(search).setVisible(true);
+    }//GEN-LAST:event_SearchProductsMouseClicked
 
-    private void StatisticsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StatisticsMouseClicked
-       Stat s = new Stat();
-     DesktopPanel.removeAll();
-     DesktopPanel.add(s).setVisible(true);
-    }//GEN-LAST:event_StatisticsMouseClicked
+    private void menuNameMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuNameMousePressed
+        Menu.setText("Home");
+    }//GEN-LAST:event_menuNameMousePressed
 
-    private void StatisticsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StatisticsMousePressed
-      Menu.setText("Statistics");
-    }//GEN-LAST:event_StatisticsMousePressed
+    private void menuNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuNameMouseClicked
+        AdminHomePage ahp = new AdminHomePage();
+        DesktopPanel.removeAll();
+        DesktopPanel.add(ahp).setVisible(true);
+    }//GEN-LAST:event_menuNameMouseClicked
+
+    private void MenuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MenuMousePressed
+
+    private void MenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MenuMouseClicked
+
+    private void AdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminButtonActionPerformed
+        Profile prof = new Profile(username,admin);
+        DesktopPanel.removeAll();
+        DesktopPanel.add(prof).setVisible(true);
+    }//GEN-LAST:event_AdminButtonActionPerformed
+
+    private void AddProducs1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddProducs1MouseClicked
+         AddProduct ap = new AddProduct();
+        DesktopPanel.removeAll();
+        DesktopPanel.add(ap).setVisible(true);
+    }//GEN-LAST:event_AddProducs1MouseClicked
+
+    private void AddProducs1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddProducs1MousePressed
+         Menu.setText("Add Products");
+    }//GEN-LAST:event_AddProducs1MousePressed
+
+    private void ViewProductsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ViewProductsMousePressed
+        Menu.setText("View Products");
+    }//GEN-LAST:event_ViewProductsMousePressed
+
+    private void ViewProductsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ViewProductsMouseClicked
+        ViewProductsAdmin vpa = new ViewProductsAdmin();
+        DesktopPanel.removeAll();
+        DesktopPanel.add(vpa).setVisible(true);
+    }//GEN-LAST:event_ViewProductsMouseClicked
+
+    private void AddprodpanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddprodpanelMousePressed
+          Addprodpanel.setBackground(ClickedColor);
+      searchprodpanel.setBackground(DefaultColor);
+      viewprodpanel.setBackground(DefaultColor);
+      activitypanel.setBackground(DefaultColor);
+      statpanel.setBackground(DefaultColor);
+       
+    }//GEN-LAST:event_AddprodpanelMousePressed
+
+    private void searchprodpanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchprodpanelMousePressed
+        Addprodpanel.setBackground(DefaultColor);
+      searchprodpanel.setBackground(ClickedColor);
+      viewprodpanel.setBackground(DefaultColor);
+      activitypanel.setBackground(DefaultColor);
+      statpanel.setBackground(DefaultColor);
+       
+    }//GEN-LAST:event_searchprodpanelMousePressed
+
+    private void viewprodpanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewprodpanelMousePressed
+   Addprodpanel.setBackground(DefaultColor);
+      searchprodpanel.setBackground(DefaultColor);
+      viewprodpanel.setBackground(ClickedColor);
+      activitypanel.setBackground(DefaultColor);
+      statpanel.setBackground(DefaultColor);
+       
+    }//GEN-LAST:event_viewprodpanelMousePressed
+
+    private void activitypanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_activitypanelMousePressed
+   Addprodpanel.setBackground(DefaultColor);
+      searchprodpanel.setBackground(DefaultColor);
+      viewprodpanel.setBackground(DefaultColor);
+      activitypanel.setBackground(ClickedColor);
+      statpanel.setBackground(DefaultColor);
+       
+    }//GEN-LAST:event_activitypanelMousePressed
+
+    private void statpanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_statpanelMousePressed
+         Addprodpanel.setBackground(DefaultColor);
+      searchprodpanel.setBackground(DefaultColor);
+      viewprodpanel.setBackground(DefaultColor);
+      activitypanel.setBackground(DefaultColor);
+      statpanel.setBackground(ClickedColor);
+       
+    }//GEN-LAST:event_statpanelMousePressed
+
 
     /**
      * @param args the command line arguments
@@ -723,14 +789,14 @@ try {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ActivityHistory;
-    private javax.swing.JLabel AddProducs;
+    private javax.swing.JLabel AddProducs1;
+    private javax.swing.JPanel Addprodpanel;
     private javax.swing.JButton AdminButton;
     private javax.swing.JDesktopPane DesktopPanel;
     private javax.swing.JPanel FullPanel;
     private javax.swing.JButton Logout;
     private javax.swing.JPanel LowerPanel;
     private javax.swing.JLabel Menu;
-    private javax.swing.JMenuBar MenuBar;
     private javax.swing.JLabel SearchProducts;
     private javax.swing.JLabel Statistics;
     private javax.swing.JLabel Title1;
@@ -742,6 +808,7 @@ try {
     private javax.swing.JLabel TotalQtyOrdered;
     private javax.swing.JPanel UpperPanel;
     private javax.swing.JLabel ViewProducts;
+    private javax.swing.JPanel activitypanel;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
@@ -768,5 +835,8 @@ try {
     private javax.swing.JLabel menuName;
     private java.awt.PopupMenu popupMenu1;
     private java.awt.PopupMenu popupMenu2;
+    private javax.swing.JPanel searchprodpanel;
+    private javax.swing.JPanel statpanel;
+    private javax.swing.JPanel viewprodpanel;
     // End of variables declaration//GEN-END:variables
 }

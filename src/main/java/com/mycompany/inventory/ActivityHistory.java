@@ -95,7 +95,6 @@ public class ActivityHistory extends javax.swing.JInternalFrame {
         CheckinTick = new javax.swing.JRadioButton();
         CheckOUTtick = new javax.swing.JRadioButton();
         print = new javax.swing.JButton();
-        Back1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Table = new javax.swing.JTable();
 
@@ -107,8 +106,11 @@ public class ActivityHistory extends javax.swing.JInternalFrame {
             }
         });
 
+        setPreferredSize(new java.awt.Dimension(983, 597));
+
         RedPanle.setBackground(new java.awt.Color(106, 175, 243));
         RedPanle.setForeground(new java.awt.Color(204, 0, 0));
+        RedPanle.setPreferredSize(new java.awt.Dimension(614, 440));
 
         BLackPanel.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -152,49 +154,8 @@ public class ActivityHistory extends javax.swing.JInternalFrame {
             }
         });
 
-        Back1.setForeground(new java.awt.Color(255, 255, 255));
-        Back1.setText("« Back");
-        Back1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Back1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Back1MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout BLackPanelLayout = new javax.swing.GroupLayout(BLackPanel);
-        BLackPanel.setLayout(BLackPanelLayout);
-        BLackPanelLayout.setHorizontalGroup(
-            BLackPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BLackPanelLayout.createSequentialGroup()
-                .addGroup(BLackPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(BLackPanelLayout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addGroup(BLackPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(print)
-                            .addComponent(CheckOUTtick)
-                            .addComponent(CheckinTick)
-                            .addComponent(Label)))
-                    .addGroup(BLackPanelLayout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(Back1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(84, Short.MAX_VALUE))
-        );
-        BLackPanelLayout.setVerticalGroup(
-            BLackPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BLackPanelLayout.createSequentialGroup()
-                .addGap(163, 163, 163)
-                .addComponent(Label)
-                .addGap(41, 41, 41)
-                .addComponent(CheckinTick)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CheckOUTtick)
-                .addGap(18, 18, 18)
-                .addComponent(print)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Back1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
-        );
-
+        Table.setBackground(new java.awt.Color(106, 175, 243));
+        Table.setForeground(new java.awt.Color(255, 255, 255));
         Table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -216,30 +177,60 @@ public class ActivityHistory extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(Table);
 
+        javax.swing.GroupLayout BLackPanelLayout = new javax.swing.GroupLayout(BLackPanel);
+        BLackPanel.setLayout(BLackPanelLayout);
+        BLackPanelLayout.setHorizontalGroup(
+            BLackPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BLackPanelLayout.createSequentialGroup()
+                .addGroup(BLackPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(BLackPanelLayout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addGroup(BLackPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(print)
+                            .addComponent(CheckOUTtick)
+                            .addComponent(CheckinTick)))
+                    .addGroup(BLackPanelLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(Label)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 627, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+        BLackPanelLayout.setVerticalGroup(
+            BLackPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BLackPanelLayout.createSequentialGroup()
+                .addGap(163, 163, 163)
+                .addComponent(Label)
+                .addGap(41, 41, 41)
+                .addComponent(CheckinTick)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(CheckOUTtick)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addComponent(print)
+                .addGap(199, 199, 199))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+        );
+
         javax.swing.GroupLayout RedPanleLayout = new javax.swing.GroupLayout(RedPanle);
         RedPanle.setLayout(RedPanleLayout);
         RedPanleLayout.setHorizontalGroup(
             RedPanleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(RedPanleLayout.createSequentialGroup()
-                .addComponent(BLackPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(BLackPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         RedPanleLayout.setVerticalGroup(
             RedPanleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(BLackPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(RedPanle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(RedPanle, javax.swing.GroupLayout.DEFAULT_SIZE, 959, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(RedPanle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(RedPanle, javax.swing.GroupLayout.DEFAULT_SIZE, 551, Short.MAX_VALUE)
         );
 
         pack();
@@ -249,27 +240,95 @@ public class ActivityHistory extends javax.swing.JInternalFrame {
       
     }//GEN-LAST:event_CHECKcomboMouseClicked
 
-  
-  
-  
-    private void CheckinTickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckinTickActionPerformed
-        if (CheckinTick.isSelected()) {
-        CheckOUTtick.setSelected(false);
-        checkinSelected = true;
-        checkoutSelected = false;
-        loadCheckInData();
-    }
-    }//GEN-LAST:event_CheckinTickActionPerformed
+    private void printActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printActionPerformed
+        try {
+            JFileChooser fileChooser = new JFileChooser();
+            fileChooser.setDialogTitle("Specify a file to save");
+            int userSelection = fileChooser.showSaveDialog(this);
+
+            if (userSelection != JFileChooser.APPROVE_OPTION) {
+                return;
+            }
+
+            File fileToSave = fileChooser.getSelectedFile();
+            String filePath = fileToSave.getAbsolutePath();
+
+            // Create a PdfWriter
+            PdfWriter writer = new PdfWriter(filePath);
+
+            // Initialize PDF document
+            PdfDocument pdf = new PdfDocument(writer);
+
+            // Initialize document
+            Document document = new Document(pdf);
+
+            Paragraph invoice = new Paragraph("Invoice");
+
+            document.add(invoice);
+
+            Table table = new Table(model.getColumnCount());
+
+            // Adding column names to the table
+            for (int i = 0; i < model.getColumnCount(); i++) {
+                table.addCell(new Cell().add(new Paragraph(model.getColumnName(i))));
+            }
+
+            // Adding data to the table
+            for (int i = 0; i < model.getRowCount(); i++) {
+                for (int j = 0; j < model.getColumnCount(); j++) {
+                    Object obj = model.getValueAt(i, j);
+                    String data = (obj == null) ? "" : obj.toString();
+                    table.addCell(new Cell().add(new Paragraph(data)));
+                }
+            }
+
+            // Adding the table to the document
+            document.add(table);
+            LocalDateTime now = LocalDateTime.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            String formatDateTime = now.format(formatter);
+            document.add(new Paragraph("Invoice generated on: " + formatDateTime));
+
+            // Close the document
+            document.close();
+            JOptionPane.showMessageDialog(this, "PDF has been created successfully.");
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace();
+        }      catch (IOException ex) {
+            Logger.getLogger(ActivityHistory.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_printActionPerformed
 
     private void CheckOUTtickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckOUTtickActionPerformed
-     if (CheckOUTtick.isSelected()) {
-        CheckinTick.setSelected(false);
-        checkoutSelected = true;
-        checkinSelected = false;
-        loadCheckOutData();
-    }
+        if (CheckOUTtick.isSelected()) {
+            CheckinTick.setSelected(false);
+            checkoutSelected = true;
+            checkinSelected = false;
+            loadCheckOutData();
+        }
     }//GEN-LAST:event_CheckOUTtickActionPerformed
-  private void loadCheckInData() {
+
+    private void CheckOUTtickMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CheckOUTtickMouseClicked
+
+    }//GEN-LAST:event_CheckOUTtickMouseClicked
+
+    private void CheckinTickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckinTickActionPerformed
+        if (CheckinTick.isSelected()) {
+            CheckOUTtick.setSelected(false);
+            checkinSelected = true;
+            checkoutSelected = false;
+            loadCheckInData();
+        }
+    }//GEN-LAST:event_CheckinTickActionPerformed
+
+    private void CheckinTickMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CheckinTickMouseClicked
+
+    }//GEN-LAST:event_CheckinTickMouseClicked
+
+  
+  
+    private void loadCheckInData() {
         clearTable(); // Clear existing data in the table
   model.setColumnIdentifiers(new Object[]{"Check IN ID", "Item ID", "Worker Name", "Amount Added", "Check IN Date"});
 
@@ -335,85 +394,9 @@ model.setColumnIdentifiers(new Object[]{"Check OUT ID", "Item ID", "Worker Name"
             model.removeRow(0);
         }
     }
-    private void CheckOUTtickMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CheckOUTtickMouseClicked
-       
-    }//GEN-LAST:event_CheckOUTtickMouseClicked
-
-    private void CheckinTickMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CheckinTickMouseClicked
-      
-    }//GEN-LAST:event_CheckinTickMouseClicked
-
-    private void printActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printActionPerformed
-        try {
-            JFileChooser fileChooser = new JFileChooser();
-            fileChooser.setDialogTitle("Specify a file to save");
-            int userSelection = fileChooser.showSaveDialog(this);
-    
-            if (userSelection != JFileChooser.APPROVE_OPTION) {
-                return;
-            }
-    
-            File fileToSave = fileChooser.getSelectedFile();
-            String filePath = fileToSave.getAbsolutePath();
-    
-            // Create a PdfWriter
-            PdfWriter writer = new PdfWriter(filePath);
-    
-            // Initialize PDF document
-            PdfDocument pdf = new PdfDocument(writer);
-    
-            // Initialize document
-            Document document = new Document(pdf);
-    
-                Paragraph invoice = new Paragraph("Invoice");
-                   
-                document.add(invoice);
-            
-            
-            Table table = new Table(model.getColumnCount());
-            
-            // Adding column names to the table
-            for (int i = 0; i < model.getColumnCount(); i++) {
-                table.addCell(new Cell().add(new Paragraph(model.getColumnName(i))));
-            }
-    
-            // Adding data to the table
-            for (int i = 0; i < model.getRowCount(); i++) {
-                for (int j = 0; j < model.getColumnCount(); j++) {
-                    Object obj = model.getValueAt(i, j);
-                    String data = (obj == null) ? "" : obj.toString();
-                    table.addCell(new Cell().add(new Paragraph(data)));
-                }
-            }
-    
-            // Adding the table to the document
-            document.add(table);
-             LocalDateTime now = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        String formatDateTime = now.format(formatter);
-            document.add(new Paragraph("Invoice generated on: " + formatDateTime));
-    
-            // Close the document
-            document.close();
-            JOptionPane.showMessageDialog(this, "PDF has been created successfully.");
-        } catch (FileNotFoundException ex) {
-            ex.printStackTrace();
-        }      catch (IOException ex) {
-                   Logger.getLogger(ActivityHistory.class.getName()).log(Level.SEVERE, null, ex);
-               }
-         
-    }//GEN-LAST:event_printActionPerformed
-
-    private void Back1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Back1MouseClicked
-        AdminHomePage ahp = new AdminHomePage();
-        ahp.setVisible(true);
-        dispose(); // Close the current window
-    }//GEN-LAST:event_Back1MouseClicked
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BLackPanel;
-    private javax.swing.JLabel Back1;
     private javax.swing.JComboBox<String> CHECKcombo;
     private javax.swing.JRadioButton CheckOUTtick;
     private javax.swing.JRadioButton CheckinTick;

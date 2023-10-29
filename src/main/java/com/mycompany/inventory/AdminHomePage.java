@@ -182,7 +182,7 @@ public class AdminHomePage extends javax.swing.JInternalFrame {
         TotalQtyOrdered = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
-        jPanel1.setPreferredSize(new java.awt.Dimension(870, 551));
+        jPanel1.setPreferredSize(new java.awt.Dimension(614, 440));
 
         jLabel7.setFont(new java.awt.Font("Sama Devanagari", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(238, 238, 238));
@@ -433,7 +433,7 @@ public class AdminHomePage extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 551, Short.MAX_VALUE)
         );
 
         pack();
