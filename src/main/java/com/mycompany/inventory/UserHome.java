@@ -187,6 +187,9 @@ public class UserHome extends javax.swing.JFrame {
         searchprodpanel.setBackground(new java.awt.Color(51, 51, 51));
         searchprodpanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         searchprodpanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                searchprodpanelMouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 searchprodpanelMousePressed(evt);
             }
@@ -226,6 +229,9 @@ public class UserHome extends javax.swing.JFrame {
         Addprodpanel.setBackground(new java.awt.Color(51, 51, 51));
         Addprodpanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Addprodpanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AddprodpanelMouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 AddprodpanelMousePressed(evt);
             }
@@ -265,6 +271,9 @@ public class UserHome extends javax.swing.JFrame {
         viewprodpanel.setBackground(new java.awt.Color(51, 51, 51));
         viewprodpanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         viewprodpanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                viewprodpanelMouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 viewprodpanelMousePressed(evt);
             }
@@ -304,6 +313,9 @@ public class UserHome extends javax.swing.JFrame {
         activitypanel.setBackground(new java.awt.Color(51, 51, 51));
         activitypanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         activitypanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                activitypanelMouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 activitypanelMousePressed(evt);
             }
@@ -343,6 +355,9 @@ public class UserHome extends javax.swing.JFrame {
         statpanel.setBackground(new java.awt.Color(51, 51, 51));
         statpanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         statpanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                statpanelMouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 statpanelMousePressed(evt);
             }
@@ -704,7 +719,9 @@ public class UserHome extends javax.swing.JFrame {
     }//GEN-LAST:event_ViewProductsMouseClicked
 
     private void AddprodpanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddprodpanelMousePressed
-          Addprodpanel.setBackground(ClickedColor);
+             Menu.setText("Add Products");
+             Addprodpanel.setBackground(ClickedColor);
+ 
       searchprodpanel.setBackground(DefaultColor);
       viewprodpanel.setBackground(DefaultColor);
       activitypanel.setBackground(DefaultColor);
@@ -713,7 +730,8 @@ public class UserHome extends javax.swing.JFrame {
     }//GEN-LAST:event_AddprodpanelMousePressed
 
     private void searchprodpanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchprodpanelMousePressed
-        Addprodpanel.setBackground(DefaultColor);
+      
+        Menu.setText("Search Products");  Addprodpanel.setBackground(DefaultColor);
       searchprodpanel.setBackground(ClickedColor);
       viewprodpanel.setBackground(DefaultColor);
       activitypanel.setBackground(DefaultColor);
@@ -722,7 +740,7 @@ public class UserHome extends javax.swing.JFrame {
     }//GEN-LAST:event_searchprodpanelMousePressed
 
     private void viewprodpanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewprodpanelMousePressed
-   Addprodpanel.setBackground(DefaultColor);
+      Menu.setText("View Products"); Addprodpanel.setBackground(DefaultColor);
       searchprodpanel.setBackground(DefaultColor);
       viewprodpanel.setBackground(ClickedColor);
       activitypanel.setBackground(DefaultColor);
@@ -731,7 +749,7 @@ public class UserHome extends javax.swing.JFrame {
     }//GEN-LAST:event_viewprodpanelMousePressed
 
     private void activitypanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_activitypanelMousePressed
-   Addprodpanel.setBackground(DefaultColor);
+     Menu.setText("Activity History");Addprodpanel.setBackground(DefaultColor);
       searchprodpanel.setBackground(DefaultColor);
       viewprodpanel.setBackground(DefaultColor);
       activitypanel.setBackground(ClickedColor);
@@ -747,6 +765,42 @@ public class UserHome extends javax.swing.JFrame {
       statpanel.setBackground(ClickedColor);
        
     }//GEN-LAST:event_statpanelMousePressed
+
+    private void AddprodpanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddprodpanelMouseClicked
+ AddProduct ap = new AddProduct();
+        DesktopPanel.removeAll();
+        DesktopPanel.add(ap).setVisible(true);
+    }//GEN-LAST:event_AddprodpanelMouseClicked
+
+    private void searchprodpanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchprodpanelMouseClicked
+  // TODO add your handling code here:
+        SearchProduct search = new SearchProduct();
+        DesktopPanel.removeAll();
+        DesktopPanel.add(search).setVisible(true);
+    }//GEN-LAST:event_searchprodpanelMouseClicked
+
+    private void viewprodpanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewprodpanelMouseClicked
+    ViewProductsAdmin vpa = new ViewProductsAdmin();
+        DesktopPanel.removeAll();
+        DesktopPanel.add(vpa).setVisible(true);
+    }//GEN-LAST:event_viewprodpanelMouseClicked
+
+    private void activitypanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_activitypanelMouseClicked
+          try {
+            // TODO add your handling code here:
+            ActivityHistory a=new ActivityHistory();
+            DesktopPanel.removeAll();
+            DesktopPanel.add(a).setVisible(true);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(UserHome.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_activitypanelMouseClicked
+
+    private void statpanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_statpanelMouseClicked
+            Menu.setText("Statistics"); Stat s = new Stat();
+        DesktopPanel.removeAll();
+        DesktopPanel.add(s).setVisible(true);
+    }//GEN-LAST:event_statpanelMouseClicked
 
 
     /**

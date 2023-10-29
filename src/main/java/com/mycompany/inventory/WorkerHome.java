@@ -4,6 +4,7 @@
  */
 package com.mycompany.inventory;
 
+import java.awt.Color;
 import java.io.FileNotFoundException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,10 +17,22 @@ public class WorkerHome extends javax.swing.JFrame {
 
     private static String workername;
     private static String worker;
+    Color DefaultColor,ClickedColor;
+    
+    
     public WorkerHome(String workername,String worker) {
         initComponents();
         this.workername = workername;
         this.worker = worker;
+          DefaultColor  = new Color(51,51,51);
+       ClickedColor = new Color(204,0,0);
+       
+             
+      viewprod.setBackground(DefaultColor);
+     checkinpanel.setBackground(DefaultColor);
+      checkoutpanel.setBackground(DefaultColor);
+      hsitorypanel.setBackground(DefaultColor);
+      
     }
 
     /**
@@ -38,11 +51,15 @@ public class WorkerHome extends javax.swing.JFrame {
         SidePanel = new javax.swing.JPanel();
         Panel1 = new javax.swing.JPanel();
         Inventory_Nexus = new javax.swing.JLabel();
-        ViewProducts = new javax.swing.JLabel();
-        CheckInProducts = new javax.swing.JLabel();
         Logout = new javax.swing.JLabel();
+        viewprod = new javax.swing.JPanel();
+        ViewProducts = new javax.swing.JLabel();
+        checkinpanel = new javax.swing.JPanel();
+        CheckInProducts = new javax.swing.JLabel();
+        hsitorypanel = new javax.swing.JPanel();
         ActivityHistoryLabel = new javax.swing.JLabel();
-        CheckOutProductsLabel = new javax.swing.JLabel();
+        checkoutpanel = new javax.swing.JPanel();
+        CheckOutProductsLabel1 = new javax.swing.JLabel();
         DesktopPanel = new javax.swing.JDesktopPane();
         panel_inventory_nexus2 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
@@ -66,7 +83,6 @@ public class WorkerHome extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         Title1 = new javax.swing.JLabel();
         Title2 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Welcome to your homepage!");
@@ -116,6 +132,7 @@ public class WorkerHome extends javax.swing.JFrame {
 
         SidePanel.setBackground(new java.awt.Color(51, 51, 51));
         SidePanel.setPreferredSize(new java.awt.Dimension(202, 631));
+        SidePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Panel1.setBackground(new java.awt.Color(60, 60, 60));
         Panel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
@@ -151,6 +168,31 @@ public class WorkerHome extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        SidePanel.add(Panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 6, -1, -1));
+
+        Logout.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        Logout.setForeground(new java.awt.Color(255, 255, 255));
+        Logout.setLabelFor(SidePanel);
+        Logout.setText("Logout");
+        Logout.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Logout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Logout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LogoutMouseClicked(evt);
+            }
+        });
+        SidePanel.add(Logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 583, -1, -1));
+
+        viewprod.setBackground(new java.awt.Color(51, 51, 51));
+        viewprod.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                viewprodMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                viewprodMousePressed(evt);
+            }
+        });
+
         ViewProducts.setForeground(new java.awt.Color(255, 255, 255));
         ViewProducts.setText("View Products");
         ViewProducts.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -160,6 +202,35 @@ public class WorkerHome extends javax.swing.JFrame {
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 ViewProductsMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout viewprodLayout = new javax.swing.GroupLayout(viewprod);
+        viewprod.setLayout(viewprodLayout);
+        viewprodLayout.setHorizontalGroup(
+            viewprodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(viewprodLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(ViewProducts)
+                .addContainerGap(62, Short.MAX_VALUE))
+        );
+        viewprodLayout.setVerticalGroup(
+            viewprodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, viewprodLayout.createSequentialGroup()
+                .addContainerGap(8, Short.MAX_VALUE)
+                .addComponent(ViewProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        SidePanel.add(viewprod, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 210, -1));
+
+        checkinpanel.setBackground(new java.awt.Color(51, 51, 51));
+        checkinpanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                checkinpanelMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                checkinpanelMousePressed(evt);
             }
         });
 
@@ -175,15 +246,32 @@ public class WorkerHome extends javax.swing.JFrame {
             }
         });
 
-        Logout.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        Logout.setForeground(new java.awt.Color(255, 255, 255));
-        Logout.setLabelFor(SidePanel);
-        Logout.setText("Logout");
-        Logout.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        Logout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Logout.addMouseListener(new java.awt.event.MouseAdapter() {
+        javax.swing.GroupLayout checkinpanelLayout = new javax.swing.GroupLayout(checkinpanel);
+        checkinpanel.setLayout(checkinpanelLayout);
+        checkinpanelLayout.setHorizontalGroup(
+            checkinpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, checkinpanelLayout.createSequentialGroup()
+                .addContainerGap(60, Short.MAX_VALUE)
+                .addComponent(CheckInProducts)
+                .addGap(36, 36, 36))
+        );
+        checkinpanelLayout.setVerticalGroup(
+            checkinpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, checkinpanelLayout.createSequentialGroup()
+                .addContainerGap(8, Short.MAX_VALUE)
+                .addComponent(CheckInProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        SidePanel.add(checkinpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 210, -1));
+
+        hsitorypanel.setBackground(new java.awt.Color(51, 51, 51));
+        hsitorypanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                LogoutMouseClicked(evt);
+                hsitorypanelMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                hsitorypanelMousePressed(evt);
             }
         });
 
@@ -199,55 +287,65 @@ public class WorkerHome extends javax.swing.JFrame {
             }
         });
 
-        CheckOutProductsLabel.setForeground(new java.awt.Color(255, 255, 255));
-        CheckOutProductsLabel.setText("Check out Products");
-        CheckOutProductsLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        CheckOutProductsLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+        javax.swing.GroupLayout hsitorypanelLayout = new javax.swing.GroupLayout(hsitorypanel);
+        hsitorypanel.setLayout(hsitorypanelLayout);
+        hsitorypanelLayout.setHorizontalGroup(
+            hsitorypanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hsitorypanelLayout.createSequentialGroup()
+                .addContainerGap(62, Short.MAX_VALUE)
+                .addComponent(ActivityHistoryLabel)
+                .addGap(40, 40, 40))
+        );
+        hsitorypanelLayout.setVerticalGroup(
+            hsitorypanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(hsitorypanelLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(ActivityHistoryLabel)
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+
+        SidePanel.add(hsitorypanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 200, -1));
+
+        checkoutpanel.setBackground(new java.awt.Color(51, 51, 51));
+        checkoutpanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                CheckOutProductsLabelMouseClicked(evt);
+                checkoutpanelMouseClicked(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                CheckOutProductsLabelMousePressed(evt);
+                checkoutpanelMousePressed(evt);
             }
         });
 
-        javax.swing.GroupLayout SidePanelLayout = new javax.swing.GroupLayout(SidePanel);
-        SidePanel.setLayout(SidePanelLayout);
-        SidePanelLayout.setHorizontalGroup(
-            SidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SidePanelLayout.createSequentialGroup()
-                .addComponent(Panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SidePanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Logout)
-                .addGap(46, 46, 46))
-            .addGroup(SidePanelLayout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addGroup(SidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ActivityHistoryLabel)
-                    .addComponent(CheckOutProductsLabel)
-                    .addComponent(CheckInProducts)
-                    .addComponent(ViewProducts))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        CheckOutProductsLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        CheckOutProductsLabel1.setText("Check out Products");
+        CheckOutProductsLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        CheckOutProductsLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CheckOutProductsLabel1MouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                CheckOutProductsLabel1MousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout checkoutpanelLayout = new javax.swing.GroupLayout(checkoutpanel);
+        checkoutpanel.setLayout(checkoutpanelLayout);
+        checkoutpanelLayout.setHorizontalGroup(
+            checkoutpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, checkoutpanelLayout.createSequentialGroup()
+                .addContainerGap(60, Short.MAX_VALUE)
+                .addComponent(CheckOutProductsLabel1)
+                .addGap(17, 17, 17))
         );
-        SidePanelLayout.setVerticalGroup(
-            SidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SidePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(112, 112, 112)
-                .addComponent(ViewProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(CheckInProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(CheckOutProductsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(ActivityHistoryLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 244, Short.MAX_VALUE)
-                .addComponent(Logout)
-                .addGap(24, 24, 24))
+        checkoutpanelLayout.setVerticalGroup(
+            checkoutpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, checkoutpanelLayout.createSequentialGroup()
+                .addContainerGap(8, Short.MAX_VALUE)
+                .addComponent(CheckOutProductsLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
+
+        SidePanel.add(checkoutpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 200, -1));
 
         BGMain.add(SidePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -3, 200, 630));
 
@@ -442,38 +540,33 @@ public class WorkerHome extends javax.swing.JFrame {
         Title2.setText("Welcome to");
         Title2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/inventory/abstract-blur-supermarket-department-store.jpg"))); // NOI18N
-
         javax.swing.GroupLayout panel_inventory_nexus2Layout = new javax.swing.GroupLayout(panel_inventory_nexus2);
         panel_inventory_nexus2.setLayout(panel_inventory_nexus2Layout);
         panel_inventory_nexus2Layout.setHorizontalGroup(
             panel_inventory_nexus2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_inventory_nexus2Layout.createSequentialGroup()
+                .addGap(54, 54, 54)
                 .addGroup(panel_inventory_nexus2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_inventory_nexus2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panel_inventory_nexus2Layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addGroup(panel_inventory_nexus2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panel_inventory_nexus2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panel_inventory_nexus2Layout.createSequentialGroup()
-                                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_inventory_nexus2Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(panel_inventory_nexus2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(Title1)
-                            .addComponent(Title2))
-                        .addGap(18, 18, 18)))
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(431, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_inventory_nexus2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panel_inventory_nexus2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Title1)
+                    .addComponent(Title2))
+                .addGap(345, 345, 345))
         );
         panel_inventory_nexus2Layout.setVerticalGroup(
             panel_inventory_nexus2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -499,8 +592,7 @@ public class WorkerHome extends javax.swing.JFrame {
                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(110, Short.MAX_VALUE))
         );
 
         DesktopPanel.add(panel_inventory_nexus2);
@@ -545,7 +637,7 @@ public class WorkerHome extends javax.swing.JFrame {
     }//GEN-LAST:event_ViewProductsMousePressed
 
     private void CheckInProductsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CheckInProductsMousePressed
-      Menu.setText("Check In Products");
+      Menu.setText("Check IN Products");
     }//GEN-LAST:event_CheckInProductsMousePressed
 
     private void ViewProductsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ViewProductsMouseClicked
@@ -580,16 +672,6 @@ public class WorkerHome extends javax.swing.JFrame {
        Menu.setText("Activity History");
     }//GEN-LAST:event_ActivityHistoryLabelMousePressed
 
-    private void CheckOutProductsLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CheckOutProductsLabelMouseClicked
-      CheckOutProducts cop = new CheckOutProducts();
-      DesktopPanel.removeAll();
-      DesktopPanel.add(cop).setVisible(true);
-    }//GEN-LAST:event_CheckOutProductsLabelMouseClicked
-
-    private void CheckOutProductsLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CheckOutProductsLabelMousePressed
-        Menu.setText("Check Out Products");
-    }//GEN-LAST:event_CheckOutProductsLabelMousePressed
-
     private void Inventory_NexusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Inventory_NexusMouseClicked
  WorkerHomePage whp = new WorkerHomePage();
       DesktopPanel.removeAll();
@@ -599,6 +681,77 @@ public class WorkerHome extends javax.swing.JFrame {
     private void Inventory_NexusMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Inventory_NexusMousePressed
          Menu.setText("Home");
     }//GEN-LAST:event_Inventory_NexusMousePressed
+
+    private void CheckOutProductsLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CheckOutProductsLabel1MouseClicked
+   CheckOutProducts cop = new CheckOutProducts();
+      DesktopPanel.removeAll();
+      DesktopPanel.add(cop).setVisible(true);
+    }//GEN-LAST:event_CheckOutProductsLabel1MouseClicked
+
+    private void CheckOutProductsLabel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CheckOutProductsLabel1MousePressed
+         Menu.setText("Check OUT products");
+    }//GEN-LAST:event_CheckOutProductsLabel1MousePressed
+
+    private void viewprodMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewprodMousePressed
+         
+       Menu.setText("View Products"); viewprod.setBackground(ClickedColor);
+     checkinpanel.setBackground(DefaultColor);
+      checkoutpanel.setBackground(DefaultColor);
+      hsitorypanel.setBackground(DefaultColor);
+    }//GEN-LAST:event_viewprodMousePressed
+
+    private void checkinpanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkinpanelMousePressed
+            
+        Menu.setText("Check In Products");viewprod.setBackground(DefaultColor);
+     checkinpanel.setBackground(ClickedColor);
+      checkoutpanel.setBackground(DefaultColor);
+      hsitorypanel.setBackground(DefaultColor);
+    }//GEN-LAST:event_checkinpanelMousePressed
+
+    private void checkoutpanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkoutpanelMousePressed
+             
+        Menu.setText("Check OUT products"); viewprod.setBackground(DefaultColor);
+     checkinpanel.setBackground(DefaultColor);
+      checkoutpanel.setBackground(ClickedColor);
+      hsitorypanel.setBackground(DefaultColor);
+    }//GEN-LAST:event_checkoutpanelMousePressed
+
+    private void hsitorypanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hsitorypanelMousePressed
+                
+            Menu.setText("Activity History");viewprod.setBackground(DefaultColor);
+     checkinpanel.setBackground(DefaultColor);
+      checkoutpanel.setBackground(DefaultColor);
+      hsitorypanel.setBackground(ClickedColor);
+    }//GEN-LAST:event_hsitorypanelMousePressed
+
+    private void viewprodMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewprodMouseClicked
+      Menu.setText("View Products"); ViewProducts vp = new ViewProducts();
+     DesktopPanel.removeAll();
+     DesktopPanel.add(vp).setVisible(true);
+    }//GEN-LAST:event_viewprodMouseClicked
+
+    private void checkinpanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkinpanelMouseClicked
+     CheckInProducts cip = new CheckInProducts();
+      DesktopPanel.removeAll();
+      DesktopPanel.add(cip).setVisible(true);
+    }//GEN-LAST:event_checkinpanelMouseClicked
+
+    private void checkoutpanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkoutpanelMouseClicked
+ CheckOutProducts cop = new CheckOutProducts();
+      DesktopPanel.removeAll();
+      DesktopPanel.add(cop).setVisible(true);
+    }//GEN-LAST:event_checkoutpanelMouseClicked
+
+    private void hsitorypanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hsitorypanelMouseClicked
+       ActivityHistoryWorker ah = null;
+        try {
+            ah = new ActivityHistoryWorker(workername);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(WorkerHome.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      DesktopPanel.removeAll();
+      DesktopPanel.add(ah).setVisible(true);
+    }//GEN-LAST:event_hsitorypanelMouseClicked
 
     /**
      * @param args the command line arguments
@@ -639,7 +792,7 @@ public class WorkerHome extends javax.swing.JFrame {
     private javax.swing.JLabel ActivityHistoryLabel;
     private javax.swing.JPanel BGMain;
     private javax.swing.JLabel CheckInProducts;
-    private javax.swing.JLabel CheckOutProductsLabel;
+    private javax.swing.JLabel CheckOutProductsLabel1;
     private javax.swing.JDesktopPane DesktopPanel;
     private javax.swing.JLabel Inventory_Nexus;
     private javax.swing.JLabel Logout;
@@ -656,11 +809,13 @@ public class WorkerHome extends javax.swing.JFrame {
     private javax.swing.JPanel UpperPanel;
     private javax.swing.JLabel UserProfile;
     private javax.swing.JLabel ViewProducts;
+    private javax.swing.JPanel checkinpanel;
+    private javax.swing.JPanel checkoutpanel;
+    private javax.swing.JPanel hsitorypanel;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -672,5 +827,6 @@ public class WorkerHome extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JPanel panel_inventory_nexus2;
+    private javax.swing.JPanel viewprod;
     // End of variables declaration//GEN-END:variables
 }
