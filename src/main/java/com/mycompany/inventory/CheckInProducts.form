@@ -113,27 +113,29 @@
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="DateLabel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="DateTF" min="-2" pref="198" max="-2" attributes="0"/>
+                          <Component id="CheckInButton" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="ClearButton" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="QtyToaddLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="PILabel" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="WorkerNamelabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="DateLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="WNTF" alignment="1" min="-2" pref="198" max="-2" attributes="0"/>
-                              <Component id="PITF" alignment="1" min="-2" pref="198" max="-2" attributes="0"/>
-                              <Component id="QTYTOADDEDTF" min="-2" pref="198" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                  <Component id="datepick2" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="WNTF" alignment="1" min="-2" pref="198" max="-2" attributes="0"/>
+                                  <Component id="PITF" alignment="1" min="-2" pref="198" max="-2" attributes="0"/>
+                                  <Component id="QTYTOADDEDTF" min="-2" pref="198" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="CheckInButton" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="ClearButton" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="43" max="32767" attributes="0"/>
@@ -160,16 +162,16 @@
                       <Component id="WNTF" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="DateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="DateTF" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="DateLabel" min="-2" max="-2" attributes="0"/>
+                      <Component id="datepick2" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="CheckInButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="ClearButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="338" max="32767" attributes="0"/>
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -258,11 +260,6 @@
             <Property name="text" type="java.lang.String" value="Worker Name"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="DateTF">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DateTFActionPerformed"/>
-          </Events>
-        </Component>
         <Container class="javax.swing.JPanel" name="jPanel2">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -283,6 +280,8 @@
             </DimensionLayout>
           </Layout>
         </Container>
+        <Component class="com.toedter.calendar.JDateChooser" name="datepick2">
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>

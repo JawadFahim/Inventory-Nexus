@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
 public class ViewProducts extends javax.swing.JInternalFrame {
     private final String url = "jdbc:mysql://localhost:3306/inventory"; // Replace with your database URL
     private final String user = "root"; // Replace with your username
-    private final String password = "ict1";
+    private final String password = "root";
     public ViewProducts() {
         initComponents();
         showTableData();

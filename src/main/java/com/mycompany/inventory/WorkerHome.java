@@ -48,6 +48,7 @@ public class WorkerHome extends javax.swing.JFrame {
         UpperPanel = new javax.swing.JPanel();
         UserProfile = new javax.swing.JLabel();
         Menu = new javax.swing.JLabel();
+        chat = new javax.swing.JButton();
         SidePanel = new javax.swing.JPanel();
         Panel1 = new javax.swing.JPanel();
         Inventory_Nexus = new javax.swing.JLabel();
@@ -107,6 +108,13 @@ public class WorkerHome extends javax.swing.JFrame {
         Menu.setFont(new java.awt.Font("PT Sans", 1, 18)); // NOI18N
         Menu.setText("Check in Products");
 
+        chat.setText("Chat");
+        chat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chatActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout UpperPanelLayout = new javax.swing.GroupLayout(UpperPanel);
         UpperPanel.setLayout(UpperPanelLayout);
         UpperPanelLayout.setHorizontalGroup(
@@ -114,7 +122,9 @@ public class WorkerHome extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, UpperPanelLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(Menu)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 664, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 536, Short.MAX_VALUE)
+                .addComponent(chat)
+                .addGap(33, 33, 33)
                 .addComponent(UserProfile)
                 .addGap(48, 48, 48))
         );
@@ -124,7 +134,8 @@ public class WorkerHome extends javax.swing.JFrame {
                 .addGap(13, 13, 13)
                 .addGroup(UpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(UserProfile)
-                    .addComponent(Menu))
+                    .addComponent(Menu)
+                    .addComponent(chat))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -350,7 +361,6 @@ public class WorkerHome extends javax.swing.JFrame {
         BGMain.add(SidePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -3, 200, 630));
 
         DesktopPanel.setPreferredSize(new java.awt.Dimension(500, 500));
-        DesktopPanel.setLayout(null);
 
         panel_inventory_nexus2.setBackground(new java.awt.Color(51, 51, 51));
         panel_inventory_nexus2.setForeground(new java.awt.Color(51, 51, 51));
@@ -753,6 +763,12 @@ public class WorkerHome extends javax.swing.JFrame {
       DesktopPanel.add(ah).setVisible(true);
     }//GEN-LAST:event_hsitorypanelMouseClicked
 
+    private void chatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chatActionPerformed
+        chatWindowWorker cw=new chatWindowWorker(workername);
+        DesktopPanel.removeAll();
+        DesktopPanel.add(cw).setVisible(true);
+    }//GEN-LAST:event_chatActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -809,6 +825,7 @@ public class WorkerHome extends javax.swing.JFrame {
     private javax.swing.JPanel UpperPanel;
     private javax.swing.JLabel UserProfile;
     private javax.swing.JLabel ViewProducts;
+    private javax.swing.JButton chat;
     private javax.swing.JPanel checkinpanel;
     private javax.swing.JPanel checkoutpanel;
     private javax.swing.JPanel hsitorypanel;

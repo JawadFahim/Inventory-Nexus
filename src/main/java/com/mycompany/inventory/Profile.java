@@ -32,7 +32,8 @@ public class Profile extends javax.swing.JInternalFrame {
         this.admin=admin;
         initComponents();
         populateApprovalTable();
-        
+        jLabel1.setText(username);
+        jLabel2.setText("admin");
          this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
         BasicInternalFrameUI ui = (BasicInternalFrameUI)this.getUI();
         ui.setNorthPane(null);
@@ -152,6 +153,8 @@ public class Profile extends javax.swing.JInternalFrame {
                 .addGap(61, 61, 61)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGap(9, 9, 9)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,9 +165,7 @@ public class Profile extends javax.swing.JInternalFrame {
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel3)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING))
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,16 +179,6 @@ public class Profile extends javax.swing.JInternalFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(jLabel6)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ApproveButton)
-                    .addComponent(RejectButton))
-                .addGap(0, 86, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(52, 52, 52)
                 .addComponent(jLabel5)
@@ -204,6 +195,16 @@ public class Profile extends javax.swing.JInternalFrame {
                 .addGap(35, 35, 35)
                 .addComponent(jButton1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addComponent(jLabel6)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ApproveButton)
+                    .addComponent(RejectButton))
+                .addGap(0, 86, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -219,6 +220,48 @@ public class Profile extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void RejectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RejectButtonActionPerformed
+        int selectedRow = ApprovalTable.getSelectedRow();
+        if (selectedRow != -1) {
+            int workerId = (int) ApprovalTable.getValueAt(selectedRow, 0);
+            // Perform database deletion for the selected worker
+            deleteWorker(workerId);
+
+            // Refresh the table after rejection
+            populateApprovalTable();
+
+            // Show a message indicating the worker has been approved
+            JOptionPane.showMessageDialog(this, "Worker with ID " + workerId + " has been rejected!");
+        }
+    }//GEN-LAST:event_RejectButtonActionPerformed
+
+    private void RejectButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RejectButtonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RejectButtonMouseClicked
+
+    private void ApproveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ApproveButtonActionPerformed
+        int selectedRow = ApprovalTable.getSelectedRow();
+        if (selectedRow != -1) {
+            int workerId = (int) ApprovalTable.getValueAt(selectedRow, 0);
+            // Perform database update to change status to 'APPROVED' for the selected worker
+            updateWorkerStatus(workerId, "APPROVED");
+
+            // Refresh the table after approval
+            populateApprovalTable();
+
+            // Show a message indicating the worker has been approved
+            JOptionPane.showMessageDialog(this, "Worker with ID " + workerId + " has been approved!");
+        }
+    }//GEN-LAST:event_ApproveButtonActionPerformed
+
+    private void ApproveButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ApproveButtonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ApproveButtonMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        changePassword();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
    
     
@@ -277,51 +320,9 @@ private void deleteWorker(int workerId) {
     
     
     
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        changePassword();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void ApproveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ApproveButtonActionPerformed
-          int selectedRow = ApprovalTable.getSelectedRow();
-        if (selectedRow != -1) {
-            int workerId = (int) ApprovalTable.getValueAt(selectedRow, 0);
-            // Perform database update to change status to 'APPROVED' for the selected worker
-            updateWorkerStatus(workerId, "APPROVED");
-
-            // Refresh the table after approval
-            populateApprovalTable();
-            
-             // Show a message indicating the worker has been approved
-        JOptionPane.showMessageDialog(this, "Worker with ID " + workerId + " has been approved!");
-        }
-    }//GEN-LAST:event_ApproveButtonActionPerformed
-
     
     
-    
-    private void ApproveButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ApproveButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ApproveButtonMouseClicked
-
-    private void RejectButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RejectButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RejectButtonMouseClicked
-
-    private void RejectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RejectButtonActionPerformed
-       int selectedRow = ApprovalTable.getSelectedRow();
-    if (selectedRow != -1) {
-        int workerId = (int) ApprovalTable.getValueAt(selectedRow, 0);
-        // Perform database deletion for the selected worker
-        deleteWorker(workerId);
-
-        // Refresh the table after rejection
-        populateApprovalTable();
-        
-         // Show a message indicating the worker has been approved
-        JOptionPane.showMessageDialog(this, "Worker with ID " + workerId + " has been rejected!");
-    }
-    }//GEN-LAST:event_RejectButtonActionPerformed
-private void changePassword() {
+    private void changePassword() {
         String newPassword = JOptionPane.showInputDialog(this, "Enter new password:");
         try {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/inventory", "root", "root"

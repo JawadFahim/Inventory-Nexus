@@ -79,29 +79,24 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jSeparator1" min="-2" pref="512" max="-2" attributes="0"/>
                                   <Component id="PersonalDetails" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="name" min="-2" pref="141" max="-2" attributes="0"/>
-                                                  <Component id="address" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="status" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="age" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="contact" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="email" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
+                                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="name" min="-2" pref="141" max="-2" attributes="0"/>
+                                          <Component id="address" min="-2" max="-2" attributes="0"/>
+                                          <Component id="status" min="-2" max="-2" attributes="0"/>
+                                          <Component id="age" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="contact" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="email" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                           </Group>

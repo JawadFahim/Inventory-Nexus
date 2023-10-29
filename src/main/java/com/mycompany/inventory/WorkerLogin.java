@@ -69,6 +69,7 @@ public class WorkerLogin extends javax.swing.JFrame {
         setBackground(new java.awt.Color(51, 51, 51));
 
         BG_Main.setBackground(new java.awt.Color(51, 51, 51));
+        BG_Main.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         BG_Main.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BG_1.setBackground(new java.awt.Color(70, 70, 70));
@@ -184,14 +185,15 @@ public class WorkerLogin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(BG_Main, javax.swing.GroupLayout.DEFAULT_SIZE, 983, Short.MAX_VALUE)
+            .addComponent(BG_Main, javax.swing.GroupLayout.PREFERRED_SIZE, 983, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(BG_Main, javax.swing.GroupLayout.DEFAULT_SIZE, 540, Short.MAX_VALUE)
+            .addComponent(BG_Main, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void WorkerNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WorkerNameActionPerformed

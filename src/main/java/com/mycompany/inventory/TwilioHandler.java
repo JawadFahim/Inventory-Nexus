@@ -11,7 +11,7 @@ public class TwilioHandler {
 
     // Twilio credentials
     public static final String ACCOUNT_SID = "AC6406a12c0905a3dbd1f724badd929f93";
-    public static final String AUTH_TOKEN = "15d4ff444738a5f649a87bec1aa2c282";
+    public static final String AUTH_TOKEN = "f9665afe3aa931b9fc682a1e197e7b08";
     public static final String TWILIO_PHONE_NUMBER = "+12486362256";
 
     public static void sendMessage(String messageBody) {

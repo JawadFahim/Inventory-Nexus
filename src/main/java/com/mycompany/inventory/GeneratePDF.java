@@ -30,7 +30,7 @@ public class GeneratePDF {
     public static void main(String[] args) throws FileNotFoundException {
         String jdbcUrl = "jdbc:mysql://localhost:3306/inventory";
         String username = "root";
-        String password = "root";
+        String password = "ict1";
 
         String query = "SELECT * FROM products";
 

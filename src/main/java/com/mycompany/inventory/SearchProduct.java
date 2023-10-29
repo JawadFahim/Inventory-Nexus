@@ -104,6 +104,11 @@ public class SearchProduct extends javax.swing.JInternalFrame {
 
         jRadioButton2.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButton2.setText("Product Name");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
 
         jButton1.setBackground(new java.awt.Color(106, 175, 243));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
@@ -177,18 +182,20 @@ public class SearchProduct extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 959, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 971, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 554, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 561, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        // TODO add your handling code here:
+         if (jRadioButton1.isSelected()) {
+        jRadioButton2.setSelected(false);}
+        
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -197,23 +204,30 @@ public class SearchProduct extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String searchBy = "";
-        if (jRadioButton1.isSelected()) {
-            searchBy = "item_id";
-        } else if (jRadioButton2.isSelected()) {
-            searchBy = "item_name";
-        }
+    if (jRadioButton1.isSelected()) {
+        searchBy = "item_id";
+    } else if (jRadioButton2.isSelected()) {
+        searchBy = "item_name";
+    }
+
+    String searchText = jTextField1.getText();
+    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
     
-        String searchText = jTextField1.getText();
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-    
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/inventory", "root", "root");
-    
-            Statement stmt = con.createStatement();
-            String query = "SELECT * FROM products WHERE " + searchBy + "='" + searchText + "'";
-            ResultSet rs = stmt.executeQuery(query);
-    
+    // Clear the table before loading new results
+    model.setRowCount(0);
+
+    try {
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/inventory", "root", "root");
+
+        Statement stmt = con.createStatement();
+        String query = "SELECT * FROM products WHERE " + searchBy + "='" + searchText + "'";
+        ResultSet rs = stmt.executeQuery(query);
+
+        if (!rs.isBeforeFirst()) {
+            // If no results are found, show a pop-up message
+            JOptionPane.showMessageDialog(this, "Product not found.");
+        } else {
             while (rs.next()) {
                 int id = rs.getInt("item_id");
                 String name = rs.getString("item_name");
@@ -221,18 +235,24 @@ public class SearchProduct extends javax.swing.JInternalFrame {
                 int price = rs.getInt("price");
                 String expDate = rs.getString("exp_date");
                 String companyName = rs.getString("Company_name");
-    
-                model.addRow(new Object[]{id, name, quantity, price, expDate, companyName});
-            }
-            rs.close();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, e.getMessage());
-        }
 
+                // Add rows at the beginning of the table
+                model.insertRow(0, new Object[]{id, name, quantity, price, expDate, companyName});
+            }
+        }
+        rs.close();
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, e.getMessage());
+    }
         
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+       if (jRadioButton2.isSelected()) {
+        jRadioButton1.setSelected(false);}
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

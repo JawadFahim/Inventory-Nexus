@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
@@ -51,8 +52,8 @@ public class CheckOutProducts extends javax.swing.JInternalFrame {
         QtyToremoveLabel = new javax.swing.JLabel();
         WNTF = new javax.swing.JTextField();
         WorkerNamelabel = new javax.swing.JLabel();
-        DateTF = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
+        datepick = new com.toedter.calendar.JDateChooser();
 
         CheckOutProductsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -132,12 +133,6 @@ public class CheckOutProducts extends javax.swing.JInternalFrame {
         WorkerNamelabel.setForeground(new java.awt.Color(255, 255, 255));
         WorkerNamelabel.setText("Worker Name :");
 
-        DateTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DateTFActionPerformed(evt);
-            }
-        });
-
         jPanel2.setBackground(new java.awt.Color(204, 0, 0));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -157,26 +152,25 @@ public class CheckOutProducts extends javax.swing.JInternalFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(QtyToremoveLabel)
-                                .addComponent(PILabel)
-                                .addComponent(WorkerNamelabel))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(WNTF, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(PITF, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(QTYTORemoveTF, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(CheckOutButton)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ClearButton)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(QtyToremoveLabel)
+                            .addComponent(PILabel)
+                            .addComponent(WorkerNamelabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(WNTF, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PITF, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(QTYTORemoveTF, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(CheckOutButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ClearButton))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(DateLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(DateTF, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(datepick, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(41, Short.MAX_VALUE))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -196,14 +190,14 @@ public class CheckOutProducts extends javax.swing.JInternalFrame {
                     .addComponent(WorkerNamelabel)
                     .addComponent(WNTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(DateLabel)
-                    .addComponent(DateTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(datepick, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CheckOutButton)
                     .addComponent(ClearButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 338, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -228,21 +222,33 @@ public class CheckOutProducts extends javax.swing.JInternalFrame {
     private void CheckOutButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CheckOutButtonMouseClicked
        model.setRowCount(0);
         int productId, quantityToRemove;
-       String date;
+       
        String workerName;
+       String dateString = null;
 
        try {
            productId = Integer.parseInt(PITF.getText());
            quantityToRemove = Integer.parseInt(QTYTORemoveTF.getText());
            workerName = WNTF.getText();
-           date = DateTF.getText();
+          java.util.Date  date =datepick.getDate();
+          if (date != null) {
+    // Define the date format you want
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+     dateString = dateFormat.format(date);
+    // Use the dateString as needed
+    System.out.println("Date as string: " + dateString);
+} else {
+    // Handle the case where no date is selected
+    JOptionPane.showMessageDialog(this, "Please select a date.");
+}
+          
 
-           updateDatabase(productId, quantityToRemove, workerName, date);
+           updateDatabase(productId, quantityToRemove, workerName, dateString);
 
            String message = "Product ID: " + productId + "\n" +
                             "Quantity Removed: " + quantityToRemove + "\n" +
                             "Worker Name: " + workerName + "\n" +
-                            "Date: " + date;
+                            "Date: " + dateString;
 
          //  TwilioHandler.sendMessage(message);
           model.setRowCount(0);
@@ -252,7 +258,7 @@ public class CheckOutProducts extends javax.swing.JInternalFrame {
            PITF.setText("");
            QTYTORemoveTF.setText("");
            WNTF.setText("");
-           DateTF.setText("");
+           
 
          
        } catch (NumberFormatException ex) {
@@ -359,10 +365,6 @@ private void updateDatabase(int productId, int quantityToRemove, String workerNa
         // TODO add your handling code here:
     }//GEN-LAST:event_WNTFActionPerformed
 
-    private void DateTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DateTFActionPerformed
-
-    }//GEN-LAST:event_DateTFActionPerformed
-
     private void CheckOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckOutButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CheckOutButtonActionPerformed
@@ -374,13 +376,13 @@ private DefaultTableModel model;
     private javax.swing.JTable CheckOutProductsTable;
     private javax.swing.JButton ClearButton;
     private javax.swing.JLabel DateLabel;
-    private javax.swing.JTextField DateTF;
     private javax.swing.JLabel PILabel;
     private javax.swing.JTextField PITF;
     private javax.swing.JTextField QTYTORemoveTF;
     private javax.swing.JLabel QtyToremoveLabel;
     private javax.swing.JTextField WNTF;
     private javax.swing.JLabel WorkerNamelabel;
+    private com.toedter.calendar.JDateChooser datepick;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables

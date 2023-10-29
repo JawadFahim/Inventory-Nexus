@@ -3,24 +3,46 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package com.mycompany.inventory;
-
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.*;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.renderer.category.LineAndShapeRenderer;
+import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.chart.renderer.category.BarRenderer;
+import org.jfree.chart.plot.PiePlot;
+import org.jfree.data.general.DefaultPieDataset;
+
 
 /**
  *
  * @author fahim
  */
 public class Stat extends javax.swing.JInternalFrame {
+  
 
     /**
      * Creates new form Stat
      */
     public Stat() {
         initComponents();
-        
-         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
+        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
         BasicInternalFrameUI ui = (BasicInternalFrameUI)this.getUI();
         ui.setNorthPane(null);
+        
     }
 
     /**
@@ -32,19 +54,124 @@ public class Stat extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup3 = new javax.swing.ButtonGroup();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jLayeredPane2 = new javax.swing.JLayeredPane();
+        jLayeredPane1 = new javax.swing.JLayeredPane();
+        jLayeredPane3 = new javax.swing.JLayeredPane();
         jPanel1 = new javax.swing.JPanel();
+        graph = new javax.swing.JPanel();
+        searchbox = new javax.swing.JTextField();
+        search = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
 
-        setPreferredSize(new java.awt.Dimension(983, 597));
+        jCheckBox1.setText("jCheckBox1");
+
+        javax.swing.GroupLayout jLayeredPane2Layout = new javax.swing.GroupLayout(jLayeredPane2);
+        jLayeredPane2.setLayout(jLayeredPane2Layout);
+        jLayeredPane2Layout.setHorizontalGroup(
+            jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jLayeredPane2Layout.setVerticalGroup(
+            jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
+        jLayeredPane1.setLayout(jLayeredPane1Layout);
+        jLayeredPane1Layout.setHorizontalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 166, Short.MAX_VALUE)
+        );
+        jLayeredPane1Layout.setVerticalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 129, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jLayeredPane3Layout = new javax.swing.GroupLayout(jLayeredPane3);
+        jLayeredPane3.setLayout(jLayeredPane3Layout);
+        jLayeredPane3Layout.setHorizontalGroup(
+            jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jLayeredPane3Layout.setVerticalGroup(
+            jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        graph.setLayout(new java.awt.BorderLayout());
+
+        search.setText("Search");
+        search.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                searchMouseClicked(evt);
+            }
+        });
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Worker", "Product" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+
+        jRadioButton1.setText("Checkins");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
+
+        jRadioButton2.setText("Checkouts");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 883, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(152, 152, 152)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(52, 52, 52)
+                        .addComponent(searchbox, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)
+                        .addComponent(jRadioButton1)
+                        .addGap(28, 28, 28)
+                        .addComponent(jRadioButton2))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(390, 390, 390)
+                        .addComponent(search)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 49, Short.MAX_VALUE)
+                .addComponent(graph, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 482, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(searchbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jRadioButton1)
+                    .addComponent(jRadioButton2))
+                .addGap(18, 18, 18)
+                .addComponent(search)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(graph, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -61,8 +188,245 @@ public class Stat extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void searchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchMouseClicked
+         String selectedOption = jComboBox1.getSelectedItem().toString();
+    String workerName = searchbox.getText();
+    boolean isCheckin = jRadioButton1.isSelected();
+       
+    if (selectedOption.equals("Worker")) {
+        ShowPieChart(workerName, isCheckin);
+    } else if (selectedOption.equals("Product")) {
+        if (jRadioButton1.isSelected()) {
+            ShowLineChart();
+        } else if (jRadioButton2.isSelected()) {
+            ShowBarChart();
+        }
+    }
+    }//GEN-LAST:event_searchMouseClicked
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+     
+           
+                String selectedOption = jComboBox1.getSelectedItem().toString();
+                if (selectedOption.equals("Product")) {
+                 
+                    jRadioButton1.setText("Invidual");
+                    jRadioButton2.setText("All products");
+                } else {
+                    
+                    jRadioButton1.setText("Checkins");
+                    jRadioButton2.setText("Checkouts");
+                }
+            
+
+        
+       
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        // TODO add your handling code here:
+        if (jRadioButton1.isSelected()) {
+        jRadioButton2.setSelected(false);}
+        searchbox.setEnabled(true);
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        // TODO add your handling code here:
+         if (jRadioButton2.isSelected()) {
+        jRadioButton1.setSelected(false);}
+         
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
+
+private void ShowPieChart(String workerName, boolean isCheckin) {
+    DefaultPieDataset dataset = new DefaultPieDataset();
+
+    String table = isCheckin ? "checkins" : "checkouts";
+    String action = isCheckin ? "added" : "removed";
+
+    try {
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/inventory", "root", "root");
+        String query = "SELECT p.item_name, SUM(" + table + ".amount_" + action + ") as total_amount " +
+                "FROM " + table + " " +
+                "JOIN products p ON " + table + ".item_id = p.item_id " +
+                "WHERE " + table + ".worker_name = ? " +
+                "GROUP BY " + table + ".item_id";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setString(1, workerName);
+        ResultSet resultSet = statement.executeQuery();
+
+        int colorIndex = 0;
+        while (resultSet.next()) {
+            String itemName = resultSet.getString("item_name");
+            int totalAmount = resultSet.getInt("total_amount");
+            dataset.setValue(itemName, totalAmount);
+            colorIndex++;
+        }
+
+        JFreeChart pieChart = ChartFactory.createPieChart(
+                "Product Distribution for " + workerName,
+                dataset,
+                true,
+                true,
+                false
+        );
+
+        PiePlot plot = (PiePlot) pieChart.getPlot();
+        plot.setSectionPaint("1", Color.BLUE);
+        plot.setSectionPaint("2", Color.RED);
+        plot.setSectionPaint("3", Color.GREEN);
+        // Add more colors if needed
+
+        ChartPanel chartPanel = new ChartPanel(pieChart);
+        graph.removeAll();
+        graph.add(chartPanel, BorderLayout.CENTER);
+        graph.validate();
+    } catch (SQLException ex) {
+        ex.printStackTrace();
+        // Handle any SQL exceptions
+    }}
+private void ShowBarChart(){
+
+    DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+
+    try {
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/inventory", "root", "root");
+
+        String query = "SELECT p.item_name, COALESCE(c.amount_added, 0) AS amount_checkin, COALESCE(co.amount_removed, 0) AS amount_checkout " +
+                "FROM products p " +
+                "LEFT JOIN checkins c ON p.item_id = c.item_id " +
+                "LEFT JOIN checkouts co ON p.item_id = co.item_id";
+
+        PreparedStatement statement = connection.prepareStatement(query);
+        ResultSet resultSet = statement.executeQuery();
+
+        while (resultSet.next()) {
+            String itemName = resultSet.getString("item_name");
+            int amountCheckin = resultSet.getInt("amount_checkin");
+            int amountCheckout = resultSet.getInt("amount_checkout");
+
+            dataset.addValue(amountCheckin, "Checkin", itemName);
+            dataset.addValue(amountCheckout, "Checkout", itemName);
+        }
+
+        JFreeChart barChart = ChartFactory.createBarChart(
+                "Product Comparison",
+                "Product",
+                "Amount",
+                dataset,
+                PlotOrientation.VERTICAL,
+                true,
+                true,
+                false
+        );
+
+        CategoryPlot barCategoryPlot = barChart.getCategoryPlot();
+        barCategoryPlot.setBackgroundPaint(Color.white);
+
+        BarRenderer renderer = new BarRenderer();
+        renderer.setSeriesPaint(0, Color.GREEN);
+        renderer.setSeriesPaint(1, Color.RED);
+        barCategoryPlot.setRenderer(renderer);
+
+        ChartPanel barChartPanel = new ChartPanel(barChart);
+        graph.removeAll();
+        graph.add(barChartPanel, BorderLayout.CENTER);
+        graph.validate();
+    } catch (SQLException ex) {
+        ex.printStackTrace();
+        // Handle any SQL exceptions
+    }
+}
+
+private void ShowLineChart(){
+String itemId = searchbox.getText();
+    try {
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/inventory", "root", "root");
+
+        // Create the dataset for check-ins
+        DefaultCategoryDataset checkinsDataset = new DefaultCategoryDataset();
+        String checkinsQuery = "SELECT checkin_date, amount_added FROM checkins WHERE item_id = ?";
+        PreparedStatement checkinsStatement = connection.prepareStatement(checkinsQuery);
+        checkinsStatement.setString(1, itemId);
+        ResultSet checkinsResultSet = checkinsStatement.executeQuery();
+        while (checkinsResultSet.next()) {
+            String checkinDate = checkinsResultSet.getString("checkin_date");
+            int amountAdded = checkinsResultSet.getInt("amount_added");
+            checkinsDataset.addValue(amountAdded, "Items Added", checkinDate);
+        }
+
+        // Create the dataset for check-outs
+        DefaultCategoryDataset checkoutsDataset = new DefaultCategoryDataset();
+        String checkoutsQuery = "SELECT checkout_date, amount_removed FROM checkouts WHERE item_id = ?";
+        PreparedStatement checkoutsStatement = connection.prepareStatement(checkoutsQuery);
+        checkoutsStatement.setString(1, itemId);
+        ResultSet checkoutsResultSet = checkoutsStatement.executeQuery();
+        while (checkoutsResultSet.next()) {
+            String checkoutDate = checkoutsResultSet.getString("checkout_date");
+            int amountRemoved = checkoutsResultSet.getInt("amount_removed");
+            checkoutsDataset.addValue(amountRemoved, "Items Removed", checkoutDate);
+        }
+
+        JFreeChart lineChartCheckins = ChartFactory.createLineChart(
+                "Item Check-Ins Statistics",
+                "Checkin Date",
+                "Amount Added",
+                checkinsDataset, PlotOrientation.VERTICAL, false, true, false
+        );
+
+        JFreeChart lineChartCheckouts = ChartFactory.createLineChart(
+                "Item Check-Outs Statistics",
+                "Checkout Date",
+                "Amount Removed",
+                checkoutsDataset, PlotOrientation.VERTICAL, false, true, false
+        );
+
+        CategoryPlot checkinsCategoryPlot = lineChartCheckins.getCategoryPlot();
+        CategoryPlot checkoutsCategoryPlot = lineChartCheckouts.getCategoryPlot();
+
+        checkinsCategoryPlot.setBackgroundPaint(Color.white);
+        checkoutsCategoryPlot.setBackgroundPaint(Color.white);
+
+        LineAndShapeRenderer checkinsRenderer = (LineAndShapeRenderer) checkinsCategoryPlot.getRenderer();
+        LineAndShapeRenderer checkoutsRenderer = (LineAndShapeRenderer) checkoutsCategoryPlot.getRenderer();
+
+        Color checkinsColor = Color.GREEN;
+        Color checkoutsColor = Color.RED;
+
+        checkinsRenderer.setSeriesPaint(0, checkinsColor);
+        checkoutsRenderer.setSeriesPaint(0, checkoutsColor);
+
+        ChartPanel lineChartPanelCheckins = new ChartPanel(lineChartCheckins);
+        ChartPanel lineChartPanelCheckouts = new ChartPanel(lineChartCheckouts);
+
+        graph.removeAll();
+        graph.setLayout(new GridLayout(1, 2)); // Set the layout to a 1x2 grid
+        graph.add(lineChartPanelCheckins);
+        graph.add(lineChartPanelCheckouts);
+        graph.validate();
+    } catch (SQLException ex) {
+        ex.printStackTrace();
+        // Handle any SQL exceptions
+    }
+}
+
+
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.JPanel graph;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLayeredPane jLayeredPane1;
+    private javax.swing.JLayeredPane jLayeredPane2;
+    private javax.swing.JLayeredPane jLayeredPane3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JButton search;
+    private javax.swing.JTextField searchbox;
     // End of variables declaration//GEN-END:variables
 }

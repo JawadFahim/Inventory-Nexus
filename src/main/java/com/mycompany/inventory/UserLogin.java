@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import java.util.Random;
 
 /**
  *
@@ -182,13 +183,12 @@ public class UserLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
-   private int generateRandomNumber() {
+    private int generateRandomNumber() {
     Random random = new Random();
     return 1000 + random.nextInt(9000); // Generates a 4-digit random number
 }
     
-    
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String username = jTextField1.getText();
     String password = new String(jPasswordField1.getPassword());
 
@@ -230,7 +230,7 @@ public class UserLogin extends javax.swing.JFrame {
         e.printStackTrace();
         JOptionPane.showMessageDialog(this, "Database error: " + e.getMessage());
     }
-    }      //GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:

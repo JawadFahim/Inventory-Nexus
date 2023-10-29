@@ -60,6 +60,7 @@ public class UserHome extends javax.swing.JFrame {
         Menu = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         menuName = new javax.swing.JLabel();
+        Chat = new javax.swing.JButton();
         LowerPanel = new javax.swing.JPanel();
         Logout = new javax.swing.JButton();
         searchprodpanel = new javax.swing.JPanel();
@@ -95,6 +96,12 @@ public class UserHome extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         TotalOUT = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        jPanel13 = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        LowProd1 = new javax.swing.JLabel();
+        jPanel12 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        LowProd = new javax.swing.JLabel();
 
         popupMenu1.setLabel("popupMenu1");
 
@@ -163,6 +170,14 @@ public class UserHome extends javax.swing.JFrame {
         jPanel7.add(menuName, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
         UpperPanel.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 63));
+
+        Chat.setText("Chat");
+        Chat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ChatActionPerformed(evt);
+            }
+        });
+        UpperPanel.add(Chat, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 20, -1, -1));
 
         FullPanel.add(UpperPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, -1));
 
@@ -602,6 +617,43 @@ public class UserHome extends javax.swing.JFrame {
         jPanel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(374, 94, 140, 100));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 356, 465, 10));
 
+        jPanel13.setBackground(new java.awt.Color(106, 175, 243));
+        jPanel13.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jLabel13.setFont(new java.awt.Font("PT Sans", 1, 13)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("Low Products");
+
+        LowProd1.setFont(new java.awt.Font("Lucida Grande", 1, 36)); // NOI18N
+        LowProd1.setForeground(new java.awt.Color(255, 255, 255));
+        LowProd1.setText("0");
+
+        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
+        jPanel13.setLayout(jPanel13Layout);
+        jPanel13Layout.setHorizontalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addGap(62, 62, 62)
+                        .addComponent(jLabel13))
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addGap(83, 83, 83)
+                        .addComponent(LowProd1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel13Layout.setVerticalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addContainerGap(16, Short.MAX_VALUE)
+                .addComponent(jLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(LowProd1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21))
+        );
+
+        jPanel1.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 380, 200, -1));
+
         DesktopPanel.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout DesktopPanelLayout = new javax.swing.GroupLayout(DesktopPanel);
@@ -618,6 +670,43 @@ public class UserHome extends javax.swing.JFrame {
         FullPanel.add(DesktopPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 900, 580));
 
         getContentPane().add(FullPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, -1));
+
+        jPanel12.setBackground(new java.awt.Color(106, 175, 243));
+        jPanel12.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jLabel12.setFont(new java.awt.Font("PT Sans", 1, 13)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Low Products");
+
+        LowProd.setFont(new java.awt.Font("Lucida Grande", 1, 36)); // NOI18N
+        LowProd.setForeground(new java.awt.Color(255, 255, 255));
+        LowProd.setText("0");
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGap(62, 62, 62)
+                        .addComponent(jLabel12))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGap(83, 83, 83)
+                        .addComponent(LowProd)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addContainerGap(16, Short.MAX_VALUE)
+                .addComponent(jLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(LowProd, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21))
+        );
+
+        getContentPane().add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -802,6 +891,12 @@ public class UserHome extends javax.swing.JFrame {
         DesktopPanel.add(s).setVisible(true);
     }//GEN-LAST:event_statpanelMouseClicked
 
+    private void ChatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChatActionPerformed
+       chatWindowAdmin wa=new chatWindowAdmin(username);
+        DesktopPanel.removeAll();
+        DesktopPanel.add(wa).setVisible(true);
+    }//GEN-LAST:event_ChatActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -846,9 +941,12 @@ public class UserHome extends javax.swing.JFrame {
     private javax.swing.JLabel AddProducs1;
     private javax.swing.JPanel Addprodpanel;
     private javax.swing.JButton AdminButton;
+    private javax.swing.JButton Chat;
     private javax.swing.JDesktopPane DesktopPanel;
     private javax.swing.JPanel FullPanel;
     private javax.swing.JButton Logout;
+    private javax.swing.JLabel LowProd;
+    private javax.swing.JLabel LowProd1;
     private javax.swing.JPanel LowerPanel;
     private javax.swing.JLabel Menu;
     private javax.swing.JLabel SearchProducts;
@@ -870,6 +968,8 @@ public class UserHome extends javax.swing.JFrame {
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem3;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -880,6 +980,8 @@ public class UserHome extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
