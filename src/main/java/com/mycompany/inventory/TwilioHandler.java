@@ -10,15 +10,15 @@ import com.twilio.type.PhoneNumber;
 public class TwilioHandler {
 
     // Twilio credentials
-    public static final String ACCOUNT_SID = "AC6406a12c0905a3dbd1f724badd929f93";
-    public static final String AUTH_TOKEN = "f9665afe3aa931b9fc682a1e197e7b08";
-    public static final String TWILIO_PHONE_NUMBER = "+12486362256";
+    public static final String ACCOUNT_SID = "";
+    public static final String AUTH_TOKEN = "";
+    public static final String TWILIO_PHONE_NUMBER = "";
 
     public static void sendMessage(String messageBody) {
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
 
         // Replace with your own phone number
-        String toPhoneNumber = "+8801782116973";
+        String toPhoneNumber = "";
 
         Message message = Message.creator(new PhoneNumber(toPhoneNumber), new PhoneNumber(TWILIO_PHONE_NUMBER), messageBody).create();
 
