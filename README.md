@@ -26,11 +26,17 @@ Inventory Nexus is a java swing based gui application, intended to manage the ba
     
 - The whole code is written using netbeans, the design and form can all be processed by netbeans so I would suggest you use that IDE. Vscode or any other will do fine too, but you can't customize the design. Install [Netbeans](https://netbeans.apache.org/front/main/download/nb20/). 
 
-- Download this [Executable JAR](https://github.com/JawadFahim/Inventory-gui/blob/master/Inventory_Nexus.jar?raw=true)
+- Download this [Executable JAR](https://github.com/JawadFahim/Inventory-gui/blob/master/Inventory_Nexus.jar) to directly start using the application. You don't need to manually run classes.
 
 
 ## Usage
+Class description   
+ -
+ UserTypeSelection- Selects user type (Admin/Worker)    
+UserLogin->UserHome : Performs Admin login and opens up admin home page
+WorkerLogin -> WorkerHome : Perfroms Worker Login and opens Worker Home page 
 
+Actions:
 ```
 Admin:
  - Create new product
