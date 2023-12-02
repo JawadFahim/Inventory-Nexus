@@ -31,10 +31,10 @@ Inventory Nexus is a java swing based gui application, intended to manage the ba
 
 ## Usage
 Class description   
- -
- UserTypeSelection- Selects user type (Admin/Worker)    
-UserLogin->UserHome : Performs Admin login and opens up admin home page
-WorkerLogin -> WorkerHome : Perfroms Worker Login and opens Worker Home page 
+ 
+- UserTypeSelection- Selects user type (Admin/Worker)    
+- UserLogin->UserHome : Performs Admin login and opens up admin home page
+- WorkerLogin -> WorkerHome : Perfroms Worker Login and opens Worker Home page 
 
 Actions:
 ```
