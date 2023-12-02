@@ -44,3 +44,4 @@ Please make sure to update tests as appropriate.
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
+![alt text](https://github.com/JawadFahim/Inventory-gui/blob/master/src/main/java/com/mycompany/inventory/caucasian-man-is-checking-stock-inventory.jpg?raw=true)
