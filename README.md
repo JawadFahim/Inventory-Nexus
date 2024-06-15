@@ -65,8 +65,6 @@ Worker:
     ![Stat png](https://github.com/JawadFahim/Inventory-gui/blob/master/Screenshots/image.png?raw=true)
 
 
-## Contribution
-This project was made by [Me](https://github.com/JawadFahim) & 
-[Ruponti Muin Nova](https://github.com/rupontinova).    
+   
 We didn't really plan to make a really big project. Ended up planning a lot of things, but actually could not implement many more things on the way. There are visible design flaws, with many bugs and so on, but hey, I guess not that bad for two noob 3rd semester students. 
 
